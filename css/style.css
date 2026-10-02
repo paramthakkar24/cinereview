@@ -50,11 +50,15 @@
   --text-3: #6f6f7d;
   --on-accent: #ffffff;
 
-  /* Titles and nav read blue. --title is the exact brief colour #0000cd;
-     --nav-link is a lighter tint so the navbar stays legible on the near-black
-     dark theme, where #0000cd itself is too dim to read. Hover is red. */
-  --title: #0000cd;
-  --nav-link: #9cc4ff;
+  /* Titles and nav are white.
+     This reverses an earlier brief, which asked for #0000cd verbatim. That
+     colour is ~1.8:1 on the #08080b background - technically a contrast ratio,
+     practically unreadable, and it read as "broken" rather than "blue". The
+     theme is dark-only now, so a dark blue has no light background to sit on.
+     Both tokens were the only blue text in the stylesheet, so this one change
+     covers h4, the brand name and every nav link. Hover stays red. */
+  --title: #ffffff;
+  --nav-link: #ffffff;
   --nav-link-hover: #ff4a56;
 
   /* Lines and shadows */
