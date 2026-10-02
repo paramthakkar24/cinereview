@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="The Social Network backdrop">
+  <title>The Social Network — banner</title>
+  <defs>
+    <linearGradient id="bg-the-social-network-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#2e5379"/>
+      <stop offset="55%" stop-color="#254260"/>
+      <stop offset="100%" stop-color="#1c3248"/>
+    </linearGradient>
+    <filter id="soft-the-social-network-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-the-social-network-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="150" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-the-social-network-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-the-social-network-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1c3248" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#1c3248" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1c3248" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-the-social-network-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#739abb" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#739abb" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-the-social-network-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-the-social-network-bn)"/>
+  <g><path d="M 0 -90 L 800 -90 L 722.375 13.5
+        L -77.625 13.5 Z"
+        fill="#739abb" opacity="0.25133893511258065"/><path d="M 800 13.5 L 1600 13.5 L 1522.375 117
+        L 722.375 117 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 117 L 800 117 L 722.375 220.5
+        L -77.625 220.5 Z"
+        fill="#739abb" opacity="0.24056259324774149"/><path d="M 800 220.5 L 1600 220.5 L 1522.375 324
+        L 722.375 324 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 324 L 800 324 L 722.375 427.5
+        L -77.625 427.5 Z"
+        fill="#739abb" opacity="0.16903820717707277"/><path d="M 800 427.5 L 1600 427.5 L 1522.375 531
+        L 722.375 531 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 531 L 800 531 L 722.375 634.5
+        L -77.625 634.5 Z"
+        fill="#739abb" opacity="0.21503432576544584"/><path d="M 800 634.5 L 1600 634.5 L 1522.375 738
+        L 722.375 738 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 738 L 800 738 L 722.375 841.5
+        L -77.625 841.5 Z"
+        fill="#739abb" opacity="0.23757720017805695"/><path d="M 800 841.5 L 1600 841.5 L 1522.375 945
+        L 722.375 945 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 945 L 800 945 L 722.375 1048.5
+        L -77.625 1048.5 Z"
+        fill="#739abb" opacity="0.2582392911333591"/><path d="M 800 1048.5 L 1600 1048.5 L 1522.375 1152
+        L 722.375 1152 Z"
+        fill="#739abb" opacity="0.03"/><path d="M 0 1152 L 800 1152 L 722.375 1255.5
+        L -77.625 1255.5 Z"
+        fill="#739abb" opacity="0.259457153333351"/><path d="M 800 1255.5 L 1600 1255.5 L 1522.375 1359
+        L 722.375 1359 Z"
+        fill="#739abb" opacity="0.03"/></g>
+  <rect width="1600" height="900" fill="url(#side-the-social-network-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-the-social-network-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-the-social-network-bn)" opacity="0.42"/>
+</svg>

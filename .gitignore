@@ -1,0 +1,10 @@
+# Local config — holds your TMDB API key, never committed
+js/config.js
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Generated preview artefacts
+tools/preview/*.png

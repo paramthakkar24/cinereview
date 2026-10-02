@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CineReview — Movie Reviews That Are Worth Your Time</title>
+<meta name="description" content="CineReview is a cinematic movie review website. Read honest reviews, scores, pros and cons, and discover new films across every genre.">
+<meta name="theme-color" content="#08080b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='19'>🎬</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="CineReview home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">CineReview</span>
+        <span class="brand__tag">Movie Reviews</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="main-nav" data-nav aria-label="Main">
+      <a class="nav__link" data-nav-link="home" href="index.html">Home</a>
+      <a class="nav__link" data-nav-link="movies" href="movies.html">Movies</a>
+      <a class="nav__link" data-nav-link="reviews" href="reviews.html">Reviews</a>
+      <a class="nav__link" data-nav-link="about" href="about.html">About</a>
+    </nav>
+
+    <div class="header__tools">
+      <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <form class="nav-search" id="nav-search" role="search" action="movies.html" method="get">
+      <label class="sr-only" for="nav-search-input">Search movies</label>
+      <div class="nav-search__field">
+        <input class="nav-search__input" id="nav-search-input" type="search" name="q" placeholder="Search movies, directors, cast" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="nav-search-results" aria-autocomplete="list">
+        <button class="btn btn--primary btn--sm" type="submit">Search</button>
+      </div>
+      <ul class="nav-search__results" id="nav-search-results" role="listbox" aria-label="Suggestions" hidden></ul>
+      <p class="nav-search__more" id="nav-search-more" hidden>
+        <button class="nav-search__all" type="submit"></button>
+      </p>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================================================================
+       Hero — featured movie, populated from the dataset by js/script.js
+  ==================================================================== -->
+  <section class="hero" id="hero" aria-label="Featured movie"></section>
+
+  <!-- ===================================================================
+       Intro + scoreboard
+  ==================================================================== -->
+  <section class="section section--alt">
+    <div class="wrap intro">
+      <div data-reveal>
+        <span class="section__kicker">Welcome to CineReview</span>
+        <h2 class="intro__title">Reviews worth your two hours, not your ten minutes</h2>
+        <div class="intro__text">
+          <p>CineReview covers every film with a full write-up: a score out of ten, the case for and the case against, and a review written by someone who sat through all of it.</p>
+          <p>No clickbait, no star ratings with four decimal places, no summaries you could have read anywhere else. Pick a film and find out whether it deserves your evening.</p>
+        </div>
+
+        <div class="intro__list">
+          <div class="intro__item">
+            <span class="intro__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Every film reviewed properly</strong>
+              <span>Story, performances, direction and craft — not a two-sentence verdict.</span>
+            </div>
+          </div>
+          <div class="intro__item">
+            <span class="intro__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Scores you can actually reason about</strong>
+              <span>A single number out of ten, plus the full rating breakdown behind it.</span>
+            </div>
+          </div>
+          <div class="intro__item">
+            <span class="intro__icon" aria-hidden="true"></span>
+            <div>
+              <strong>Pros and cons, side by side</strong>
+              <span>The honest version: what works, what does not, and who should skip it.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="scoreboard" id="scoreboard" data-reveal data-reveal-delay="120" aria-label="Library statistics"></aside>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Popular movies
+  ==================================================================== -->
+  <section class="section" aria-labelledby="trending-title">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Popular right now</span>
+          <h2 class="section__title" id="trending-title">Trending movies</h2>
+          <p class="section__note">The films readers have been rating most this week.</p>
+        </div>
+        <a class="section__link" href="movies.html">See all movies</a>
+      </div>
+
+      <div class="rail" data-rail data-reveal>
+        <div class="rail__track" id="rail-trending"></div>
+        <div class="rail__nav">
+          <button class="rail__btn" type="button" data-rail-prev aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="rail__btn" type="button" data-rail-next aria-label="Scroll right">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Latest reviews
+  ==================================================================== -->
+  <section class="section section--alt" aria-labelledby="latest-reviews-title">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Fresh from the desk</span>
+          <h2 class="section__title" id="latest-reviews-title">Latest reviews</h2>
+          <p class="section__note">Our most recently published verdicts.</p>
+        </div>
+        <a class="section__link" href="reviews.html">All reviews</a>
+      </div>
+
+      <div class="review-grid" id="home-reviews" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       New releases
+  ==================================================================== -->
+  <section class="section" aria-labelledby="new-title">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Just added</span>
+          <h2 class="section__title" id="new-title">New in the library</h2>
+          <p class="section__note">Recent additions, from last year's awards run to this summer's releases.</p>
+        </div>
+        <a class="section__link" href="movies.html?sort=year">Browse by year</a>
+      </div>
+
+      <div class="rail" data-rail data-reveal>
+        <div class="rail__track" id="rail-latest"></div>
+        <div class="rail__nav">
+          <button class="rail__btn" type="button" data-rail-prev aria-label="Scroll left">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="rail__btn" type="button" data-rail-next aria-label="Scroll right">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Top rated
+  ==================================================================== -->
+  <section class="section section--alt" aria-labelledby="top-title">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">The best of the best</span>
+          <h2 class="section__title" id="top-title">Top rated movies</h2>
+          <p class="section__note">The highest-scoring films in the CineReview library, highest first.</p>
+        </div>
+        <a class="section__link" href="movies.html?sort=rating">Full ranking</a>
+      </div>
+
+      <div class="grid grid--rail" id="rail-top" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Closing call to action
+  ==================================================================== -->
+  <section class="section">
+    <div class="wrap text-center" data-reveal>
+      <span class="section__kicker">Ready when you are</span>
+      <h2 class="section__title">Find something worth watching tonight</h2>
+      <p class="section__note" style="margin:1rem auto 2rem">
+        Browse the full library by genre, year or score, and rate the ones you have seen.
+      </p>
+      <div class="hero__cta" style="justify-content:center">
+        <a class="btn btn--primary" href="movies.html">Browse all movies</a>
+        <a class="btn btn--ghost" href="about.html">How CineReview works</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__top">
+    <div class="footer__brand">
+      <a class="brand" href="index.html" aria-label="CineReview home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">CineReview</span>
+          <span class="brand__tag">Movie Reviews</span>
+        </span>
+      </a>
+      <p class="footer__blurb">
+        A small, obsessive movie review site. We watch the film, we write the review, and we tell you the truth about your evening.
+      </p>
+      <div class="footer__socials">
+        <a class="footer__social" href="#" aria-label="CineReview on X"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on Instagram"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on YouTube"><span aria-hidden="true"></span></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Browse</h3>
+      <div class="footer__links">
+        <a href="movies.html">All movies</a>
+        <a href="movies.html?sort=year">New releases</a>
+        <a href="movies.html?sort=rating">Top rated</a>
+        <a href="reviews.html">All reviews</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Genres</h3>
+      <div class="footer__links">
+        <a href="movies.html?genre=Sci-Fi">Sci-Fi</a>
+        <a href="movies.html?genre=Drama">Drama</a>
+        <a href="movies.html?genre=Thriller">Thriller</a>
+        <a href="movies.html?genre=Animation">Animation</a>
+        <a href="movies.html?genre=Comedy">Comedy</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">CineReview</h3>
+      <div class="footer__links">
+        <a href="about.html">About us</a>
+        <a href="about.html#mission">Our mission</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <span>&copy; <span id="year">2026</span> CineReview. A demonstration project — all reviews are original editorial content.</span>
+    <p class="footer__note">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+<script>
+  /* Fill in the year, and drop the icons the static markup left empty. */
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".brand__mark").forEach(function (m) {
+    m.innerHTML = window.CR.icons.clapper;
+  });
+  document.querySelectorAll(".intro__icon").forEach(function (el, i) {
+    var keys = ["film", "star", "quote"];
+    el.innerHTML = window.CR.icons[keys[i % keys.length]];
+  });
+  var socials = ["x", "instagram", "youtube"];
+  document.querySelectorAll(".footer__social span").forEach(function (el, i) {
+    el.innerHTML = window.CR.icons[socials[i]];
+  });
+</script>
+
+</body>
+</html>

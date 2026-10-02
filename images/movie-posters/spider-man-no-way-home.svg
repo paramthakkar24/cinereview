@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Spider-Man: No Way Home poster">
+  <title>Spider-Man: No Way Home (2021)</title>
+  <defs>
+    <linearGradient id="bg-spider-man-no-way-home" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#9b3e44"/>
+      <stop offset="60%" stop-color="#6e2e34"/>
+      <stop offset="100%" stop-color="#532327"/>
+    </linearGradient>
+    <filter id="soft-spider-man-no-way-home" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-spider-man-no-way-home" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="157" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-spider-man-no-way-home" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-spider-man-no-way-home" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-spider-man-no-way-home)"/>
+  <g><circle cx="183.3" cy="729.9" r="137.8"
+        fill="#e38485" opacity="0.174"/><circle cx="378.4" cy="63.1" r="68.0"
+        fill="#e38485" opacity="0.147"/><circle cx="436.1" cy="605.8" r="87.9"
+        fill="#e38485" opacity="0.123"/><circle cx="159.3" cy="116.4" r="117.0"
+        fill="#e38485" opacity="0.144"/><circle cx="486.4" cy="361.7" r="105.2"
+        fill="#e38485" opacity="0.122"/><circle cx="129.4" cy="64.7" r="140.1"
+        fill="#e38485" opacity="0.168"/><circle cx="82.2" cy="326.5" r="108.0"
+        fill="#e38485" opacity="0.164"/><circle cx="347.6" cy="681.3" r="63.6"
+        fill="#e38485" opacity="0.173"/><circle cx="115.5" cy="2.3" r="140.4"
+        fill="#e38485" opacity="0.149"/></g>
+  <rect width="500" height="750" fill="url(#fade-spider-man-no-way-home)"/>
+  <rect width="500" height="750" fill="url(#vig-spider-man-no-way-home)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-spider-man-no-way-home)" opacity="0.4"/>
+
+  <line x1="46" y1="484.8" x2="454" y2="484.8"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="691.2"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2021</text>
+  <text x="454" y="691.2"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">7.5</text>
+
+  <text x="46" y="507.5"
+          font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">SPIDER-MAN:</text>
+      <text x="46" y="564.8"
+          font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">NO WAY</text>
+      <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="54" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">HOME</text>
+</svg>

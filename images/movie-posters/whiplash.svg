@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Whiplash poster">
+  <title>Whiplash (2014)</title>
+  <defs>
+    <linearGradient id="bg-whiplash" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#7e3232"/>
+      <stop offset="60%" stop-color="#742a27"/>
+      <stop offset="100%" stop-color="#57201d"/>
+    </linearGradient>
+    <filter id="soft-whiplash" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-whiplash" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="59" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-whiplash" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-whiplash" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-whiplash)"/>
+  <g><line x1="250" y1="300" x2="819.8"
+        y2="300.0" stroke="#d27971"
+        stroke-width="1.0" opacity="0.23"/><line x1="250" y1="300" x2="1007.6"
+        y2="472.9" stroke="#d27971"
+        stroke-width="1.4" opacity="0.11"/><line x1="250" y1="300" x2="818.4"
+        y2="573.8" stroke="#d27971"
+        stroke-width="1.1" opacity="0.17"/><line x1="250" y1="300" x2="842.0"
+        y2="772.1" stroke="#d27971"
+        stroke-width="2.8" opacity="0.32"/><line x1="250" y1="300" x2="595.9"
+        y2="733.8" stroke="#d27971"
+        stroke-width="2.6" opacity="0.27"/><line x1="250" y1="300" x2="534.2"
+        y2="890.2" stroke="#d27971"
+        stroke-width="2.4" opacity="0.19"/><line x1="250" y1="300" x2="407.1"
+        y2="988.4" stroke="#d27971"
+        stroke-width="2.4" opacity="0.12"/><line x1="250" y1="300" x2="250.0"
+        y2="857.8" stroke="#d27971"
+        stroke-width="2.1" opacity="0.17"/><line x1="250" y1="300" x2="86.7"
+        y2="1015.4" stroke="#d27971"
+        stroke-width="1.5" opacity="0.33"/><line x1="250" y1="300" x2="13.0"
+        y2="792.1" stroke="#d27971"
+        stroke-width="1.6" opacity="0.19"/><line x1="250" y1="300" x2="-211.7"
+        y2="878.9" stroke="#d27971"
+        stroke-width="1.4" opacity="0.30"/><line x1="250" y1="300" x2="-303.0"
+        y2="741.0" stroke="#d27971"
+        stroke-width="2.2" opacity="0.18"/><line x1="250" y1="300" x2="-336.7"
+        y2="582.5" stroke="#d27971"
+        stroke-width="2.0" opacity="0.10"/><line x1="250" y1="300" x2="-255.7"
+        y2="415.4" stroke="#d27971"
+        stroke-width="2.2" opacity="0.12"/><line x1="250" y1="300" x2="-401.1"
+        y2="300.0" stroke="#d27971"
+        stroke-width="3.1" opacity="0.17"/><line x1="250" y1="300" x2="-473.7"
+        y2="134.8" stroke="#d27971"
+        stroke-width="1.3" opacity="0.25"/><line x1="250" y1="300" x2="-356.9"
+        y2="7.7" stroke="#d27971"
+        stroke-width="1.6" opacity="0.17"/><line x1="250" y1="300" x2="-284.5"
+        y2="-126.3" stroke="#d27971"
+        stroke-width="3.0" opacity="0.34"/><line x1="250" y1="300" x2="-218.9"
+        y2="-287.9" stroke="#d27971"
+        stroke-width="2.9" opacity="0.10"/><line x1="250" y1="300" x2="-18.7"
+        y2="-258.0" stroke="#d27971"
+        stroke-width="0.8" opacity="0.22"/><line x1="250" y1="300" x2="121.2"
+        y2="-264.4" stroke="#d27971"
+        stroke-width="3.0" opacity="0.13"/><line x1="250" y1="300" x2="250.0"
+        y2="-433.5" stroke="#d27971"
+        stroke-width="1.2" opacity="0.29"/><line x1="250" y1="300" x2="427.2"
+        y2="-476.2" stroke="#d27971"
+        stroke-width="3.1" opacity="0.33"/><line x1="250" y1="300" x2="526.1"
+        y2="-273.3" stroke="#d27971"
+        stroke-width="2.0" opacity="0.37"/><line x1="250" y1="300" x2="618.5"
+        y2="-162.1" stroke="#d27971"
+        stroke-width="2.8" opacity="0.35"/><line x1="250" y1="300" x2="815.0"
+        y2="-150.6" stroke="#d27971"
+        stroke-width="2.4" opacity="0.17"/><line x1="250" y1="300" x2="896.1"
+        y2="-11.1" stroke="#d27971"
+        stroke-width="2.3" opacity="0.29"/><line x1="250" y1="300" x2="696.1"
+        y2="198.2" stroke="#d27971"
+        stroke-width="3.0" opacity="0.34"/><circle cx="250" cy="300" r="80" fill="#d27971" opacity="0.85"/></g>
+  <rect width="500" height="750" fill="url(#fade-whiplash)"/>
+  <rect width="500" height="750" fill="url(#vig-whiplash)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-whiplash)" opacity="0.4"/>
+
+  <line x1="46" y1="594.3" x2="454" y2="594.3"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="704.0"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2014</text>
+  <text x="454" y="704.0"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">8.5</text>
+
+  <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="66" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">WHIPLASH</text>
+</svg>

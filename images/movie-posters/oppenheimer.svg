@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Oppenheimer poster">
+  <title>Oppenheimer (2023)</title>
+  <defs>
+    <linearGradient id="bg-oppenheimer" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#9c5c39"/>
+      <stop offset="60%" stop-color="#73452c"/>
+      <stop offset="100%" stop-color="#563421"/>
+    </linearGradient>
+    <filter id="soft-oppenheimer" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-oppenheimer" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="80" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-oppenheimer" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-oppenheimer" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-oppenheimer)"/>
+  <g><rect x="115.0" y="158.5" width="200" height="255.00000000000003" fill="#e7a57a" opacity="0.5" transform="rotate(7.2 200 300)"/><circle cx="348.1666147126816" cy="506.1014635430183" r="83.54296134784818" fill="#e7a57a" opacity="0.42"/><circle cx="137.13941274909303" cy="502.5294348306488" r="119.37013402581215" fill="#e7a57a" opacity="0.42"/><rect x="84.8" y="76.2" width="310" height="15" fill="#e7a57a" opacity="0.55" transform="rotate(39.0 250 375)"/><rect x="141.4" y="213.1" width="310" height="15" fill="#e7a57a" opacity="0.55" transform="rotate(7.1 250 375)"/></g>
+  <rect width="500" height="750" fill="url(#fade-oppenheimer)"/>
+  <rect width="500" height="750" fill="url(#vig-oppenheimer)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-oppenheimer)" opacity="0.4"/>
+
+  <line x1="46" y1="601.8" x2="454" y2="601.8"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="684.9"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2023</text>
+  <text x="454" y="684.9"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">8.3</text>
+
+  <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">OPPENHEIMER</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="The Shawshank Redemption poster">
+  <title>The Shawshank Redemption (1994)</title>
+  <defs>
+    <linearGradient id="bg-the-shawshank-redemption" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#806c43"/>
+      <stop offset="60%" stop-color="#705e36"/>
+      <stop offset="100%" stop-color="#544729"/>
+    </linearGradient>
+    <filter id="soft-the-shawshank-redemption" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-the-shawshank-redemption" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="171" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-the-shawshank-redemption" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-the-shawshank-redemption" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-the-shawshank-redemption)"/>
+  <g><rect x="0" y="360" width="500" height="390" fill="#544729" opacity="0.55"/><line x1="0" y1="360" x2="500" y2="360" stroke="#d5bf85" stroke-width="2" opacity="0.8"/><line x1="250" y1="360" x2="33.3" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="66.7" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="100.0" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="133.3" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="166.7" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="200.0" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="233.3" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="266.7" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="300.0" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="333.3" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="366.7" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="400.0" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="433.3" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="466.7" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="250" y1="360" x2="500.0" y2="750"
+        stroke="#d5bf85" stroke-width="1" opacity="0.3"/><line x1="0" y1="362.5" x2="500" y2="362.5"
+        stroke="#d5bf85" stroke-width="0.9" opacity="0.20"/><line x1="0" y1="372.3" x2="500" y2="372.3"
+        stroke="#d5bf85" stroke-width="1.0" opacity="0.24"/><line x1="0" y1="391.2" x2="500" y2="391.2"
+        stroke="#d5bf85" stroke-width="1.1" opacity="0.27"/><line x1="0" y1="420.4" x2="500" y2="420.4"
+        stroke="#d5bf85" stroke-width="1.2" opacity="0.31"/><line x1="0" y1="460.9" x2="500" y2="460.9"
+        stroke="#d5bf85" stroke-width="1.4" opacity="0.35"/><line x1="0" y1="513.5" x2="500" y2="513.5"
+        stroke="#d5bf85" stroke-width="1.5" opacity="0.39"/><line x1="0" y1="578.8" x2="500" y2="578.8"
+        stroke="#d5bf85" stroke-width="1.6" opacity="0.42"/><line x1="0" y1="657.4" x2="500" y2="657.4"
+        stroke="#d5bf85" stroke-width="1.7" opacity="0.46"/><line x1="0" y1="750.0" x2="500" y2="750.0"
+        stroke="#d5bf85" stroke-width="1.8" opacity="0.50"/></g>
+  <rect width="500" height="750" fill="url(#fade-the-shawshank-redemption)"/>
+  <rect width="500" height="750" fill="url(#vig-the-shawshank-redemption)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-the-shawshank-redemption)" opacity="0.4"/>
+
+  <line x1="46" y1="487.4" x2="454" y2="487.4"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="690.2"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">1994</text>
+  <text x="454" y="690.2"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">9.3</text>
+
+  <text x="46" y="509.6"
+          font-family="Georgia, 'Times New Roman', serif" font-size="53" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">THE</text>
+      <text x="46" y="565.8"
+          font-family="Georgia, 'Times New Roman', serif" font-size="53" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">SHAWSHANK</text>
+      <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="53" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">REDEMPTION</text>
+</svg>

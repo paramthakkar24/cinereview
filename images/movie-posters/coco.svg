@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Coco poster">
+  <title>Coco (2017)</title>
+  <defs>
+    <linearGradient id="bg-coco" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#9e6d44"/>
+      <stop offset="60%" stop-color="#755134"/>
+      <stop offset="100%" stop-color="#583d27"/>
+    </linearGradient>
+    <filter id="soft-coco" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-coco" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="31" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-coco" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-coco" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-coco)"/>
+  <g><path d="M 0 -75 L 250 -75 L 185.3125 11.25
+        L -64.6875 11.25 Z"
+        fill="#edb985" opacity="0.2247478475607932"/><path d="M 250 11.25 L 500 11.25 L 435.3125 97.5
+        L 185.3125 97.5 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 97.5 L 250 97.5 L 185.3125 183.75
+        L -64.6875 183.75 Z"
+        fill="#edb985" opacity="0.15732470178976657"/><path d="M 250 183.75 L 500 183.75 L 435.3125 270
+        L 185.3125 270 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 270 L 250 270 L 185.3125 356.25
+        L -64.6875 356.25 Z"
+        fill="#edb985" opacity="0.22966038037091496"/><path d="M 250 356.25 L 500 356.25 L 435.3125 442.5
+        L 185.3125 442.5 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 442.5 L 250 442.5 L 185.3125 528.75
+        L -64.6875 528.75 Z"
+        fill="#edb985" opacity="0.22398758315481246"/><path d="M 250 528.75 L 500 528.75 L 435.3125 615
+        L 185.3125 615 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 615 L 250 615 L 185.3125 701.25
+        L -64.6875 701.25 Z"
+        fill="#edb985" opacity="0.2552597253303975"/><path d="M 250 701.25 L 500 701.25 L 435.3125 787.5
+        L 185.3125 787.5 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 787.5 L 250 787.5 L 185.3125 873.75
+        L -64.6875 873.75 Z"
+        fill="#edb985" opacity="0.2507178023364395"/><path d="M 250 873.75 L 500 873.75 L 435.3125 960
+        L 185.3125 960 Z"
+        fill="#edb985" opacity="0.03"/><path d="M 0 960 L 250 960 L 185.3125 1046.25
+        L -64.6875 1046.25 Z"
+        fill="#edb985" opacity="0.1594232239574194"/><path d="M 250 1046.25 L 500 1046.25 L 435.3125 1132.5
+        L 185.3125 1132.5 Z"
+        fill="#edb985" opacity="0.03"/></g>
+  <rect width="500" height="750" fill="url(#fade-coco)"/>
+  <rect width="500" height="750" fill="url(#vig-coco)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-coco)" opacity="0.4"/>
+
+  <line x1="46" y1="593.4" x2="454" y2="593.4"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="706.1"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2017</text>
+  <text x="454" y="706.1"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">8.4</text>
+
+  <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">COCO</text>
+</svg>

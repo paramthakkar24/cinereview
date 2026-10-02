@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Oppenheimer backdrop">
+  <title>Oppenheimer — banner</title>
+  <defs>
+    <linearGradient id="bg-oppenheimer-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#8b5439"/>
+      <stop offset="55%" stop-color="#79472d"/>
+      <stop offset="100%" stop-color="#5b3522"/>
+    </linearGradient>
+    <filter id="soft-oppenheimer-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-oppenheimer-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="101" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-oppenheimer-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-oppenheimer-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5b3522" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#5b3522" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5b3522" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-oppenheimer-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#e7a57a" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e7a57a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-oppenheimer-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-oppenheimer-bn)"/>
+  <g><path d="M -10 910 L -10 450.0 L 0.0 450.6 L 177.8 497.2 L 355.6 421.6 L 533.3 404.8 L 711.1 485.1 L 888.9 488.2 L 1066.7 409.0 L 1244.4 419.8 L 1422.2 494.3 L 1600.0 452.6 L 1610 910 Z" fill="#8b5439" opacity="0.90"/><path d="M -10 910 L -10 489.0 L 0.0 520.3 L 177.8 453.1 L 355.6 472.7 L 533.3 522.0 L 711.1 495.2 L 888.9 447.8 L 1066.7 487.0 L 1244.4 529.0 L 1422.2 483.8 L 1600.0 450.6 L 1610 910 Z" fill="#7b4a31" opacity="0.86"/><path d="M -10 910 L -10 528.0 L 0.0 497.1 L 177.8 519.7 L 355.6 560.8 L 533.3 525.7 L 711.1 495.4 L 888.9 535.2 L 1066.7 559.5 L 1244.4 514.5 L 1422.2 506.4 L 1600.0 554.6 L 1610 910 Z" fill="#6b3f2a" opacity="0.82"/><path d="M -10 910 L -10 567.0 L 0.0 569.3 L 177.8 590.3 L 355.6 559.5 L 533.3 547.3 L 711.1 584.1 L 888.9 581.4 L 1066.7 546.2 L 1244.4 553.2 L 1422.2 589.0 L 1600.0 575.4 L 1610 910 Z" fill="#5b3522" opacity="0.78"/></g>
+  <rect width="1600" height="900" fill="url(#side-oppenheimer-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-oppenheimer-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-oppenheimer-bn)" opacity="0.42"/>
+</svg>

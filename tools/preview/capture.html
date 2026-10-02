@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>capture</title></head>
+<body>
+<script>
+window.__log = [];
+window.onerror = function (msg, src, line, col) {
+  window.__log.push("ERROR: " + msg + "  @ " + String(src).split("/").pop() + ":" + line + ":" + col);
+};
+</script>
+<iframe id="f" src="../index.html" style="width:1280px;height:900px;border:0"></iframe>
+<pre id="out"></pre>
+<script>
+document.getElementById("f").addEventListener("load", function () {
+  setTimeout(function () {
+    var d = this.contentDocument;
+    var w = this.contentWindow;
+    var lines = [];
+
+    lines.push("=== window.CR surfaces defined ===");
+    ["config","data","reviews","api","ui","icons","icon","behaviour"].forEach(function (k) {
+      lines.push("  CR." + k + ": " + (w.CR && w.CR[k] ? "yes" : "MISSING"));
+    });
+
+    lines.push("\n=== my slot ids, are they filled? ===");
+    ["hero","scoreboard","rail-trending","rail-latest","rail-top","home-reviews"].forEach(function (id) {
+      var n = d.getElementById(id);
+      if (!n) { lines.push("  #" + id + ": node missing"); return; }
+      lines.push("  #" + id + ": " + n.children.length + " children, " + n.innerHTML.trim().length + " chars");
+    });
+
+    lines.push("\n=== the other architecture's slot ids ===");
+    ["popular","top-rated","latest-reviews"].forEach(function (id) {
+      lines.push("  #" + id + ": " + (d.getElementById(id) ? "present" : "ABSENT (their home.js needs it)"));
+    });
+
+    lines.push("\n=== errors on the page ===");
+    lines.push(w.__log.length ? w.__log.join("\n") : "  none captured");
+
+    lines.push("\n=== card count rendered ===");
+    lines.push("  .card elements: " + d.querySelectorAll(".card").length);
+    lines.push("  images with empty src: " + Array.from(d.images).filter(function(i){return !i.getAttribute("src");}).length);
+
+    document.getElementById("out").textContent = lines.join("\n");
+  }.bind(this), 2500);
+});
+</script>
+</body></html>

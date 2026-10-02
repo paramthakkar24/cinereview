@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Everything Everywhere All at Once poster">
+  <title>Everything Everywhere All at Once (2022)</title>
+  <defs>
+    <linearGradient id="bg-everything-everywhere" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#73448c"/>
+      <stop offset="60%" stop-color="#693b7f"/>
+      <stop offset="100%" stop-color="#4f2c5f"/>
+    </linearGradient>
+    <filter id="soft-everything-everywhere" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-everything-everywhere" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="150" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-everything-everywhere" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-everything-everywhere" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-everything-everywhere)"/>
+  <g><path d="M 251.32733276113868 787.5 L 210.51293512852862 -75
+        L 240.60469873668626 -75 Z"
+        fill="#ca90e2" opacity="0.078"/><path d="M 251.32733276113868 787.5 L 358.32696363981813 -75
+        L 410.2915249047801 -75 Z"
+        fill="#ca90e2" opacity="0.158"/><path d="M 251.32733276113868 787.5 L 44.66062097763643 -75
+        L 65.87322186259553 -75 Z"
+        fill="#ca90e2" opacity="0.146"/><path d="M 251.32733276113868 787.5 L 379.6751132183708 -75
+        L 419.1828931267373 -75 Z"
+        fill="#ca90e2" opacity="0.114"/><path d="M 251.32733276113868 787.5 L 225.8082347116433 -75
+        L 277.8220644327812 -75 Z"
+        fill="#ca90e2" opacity="0.063"/><path d="M 251.32733276113868 787.5 L 115.34029601002112 -75
+        L 172.86185639118776 -75 Z"
+        fill="#ca90e2" opacity="0.123"/><path d="M 251.32733276113868 787.5 L 370.705763945356 -75
+        L 388.68981562927365 -75 Z"
+        fill="#ca90e2" opacity="0.074"/><ellipse cx="251.32733276113868" cy="105.00000000000001" rx="250" ry="97.5"
+      fill="#ca90e2" opacity="0.22" filter="url(#soft-everything-everywhere)"/></g>
+  <rect width="500" height="750" fill="url(#fade-everything-everywhere)"/>
+  <rect width="500" height="750" fill="url(#vig-everything-everywhere)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-everything-everywhere)" opacity="0.4"/>
+
+  <line x1="46" y1="492.5" x2="454" y2="492.5"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="688.1"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2022</text>
+  <text x="454" y="688.1"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">8.0</text>
+
+  <text x="46" y="513.9"
+          font-family="Georgia, 'Times New Roman', serif" font-size="51" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">EVERYTHING</text>
+      <text x="46" y="567.9"
+          font-family="Georgia, 'Times New Roman', serif" font-size="51" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">EVERYWHERE</text>
+      <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="51" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">ALL AT ONCE</text>
+</svg>

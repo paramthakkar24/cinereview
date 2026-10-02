@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Whiplash backdrop">
+  <title>Whiplash — banner</title>
+  <defs>
+    <linearGradient id="bg-whiplash-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#863331"/>
+      <stop offset="55%" stop-color="#712927"/>
+      <stop offset="100%" stop-color="#551f1d"/>
+    </linearGradient>
+    <filter id="soft-whiplash-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-whiplash-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="80" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-whiplash-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-whiplash-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#551f1d" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#551f1d" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#551f1d" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-whiplash-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#d27971" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#d27971" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-whiplash-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-whiplash-bn)"/>
+  <g><g transform="rotate(-36.4 800.0 450.0)">
+      <rect x="-1600" y="378.0" width="4800" height="90.0"
+        fill="#d27971" opacity="0.55"/>
+      <rect x="-1600" y="504.0" width="4800" height="31.5"
+        fill="#d27971" opacity="0.3"/>
+      <rect x="-1600" y="594.0" width="4800" height="10.8"
+        fill="#d27971" opacity="0.18"/>
+    </g></g>
+  <rect width="1600" height="900" fill="url(#side-whiplash-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-whiplash-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-whiplash-bn)" opacity="0.42"/>
+</svg>

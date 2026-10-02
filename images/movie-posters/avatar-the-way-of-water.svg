@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Avatar: The Way of Water poster">
+  <title>Avatar: The Way of Water (2022)</title>
+  <defs>
+    <linearGradient id="bg-avatar-the-way-of-water" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#2e7f9d"/>
+      <stop offset="60%" stop-color="#23566b"/>
+      <stop offset="100%" stop-color="#1a4150"/>
+    </linearGradient>
+    <filter id="soft-avatar-the-way-of-water" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-avatar-the-way-of-water" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="164" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-avatar-the-way-of-water" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-avatar-the-way-of-water" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-avatar-the-way-of-water)"/>
+  <g><circle cx="273.7" cy="315.0" r="35.8"
+        fill="none" stroke="#73c1d9" stroke-width="1.53"
+        opacity="0.47"/><circle cx="273.7" cy="315.0" r="71.5"
+        fill="none" stroke="#73c1d9" stroke-width="1.46"
+        opacity="0.44"/><circle cx="273.7" cy="315.0" r="107.3"
+        fill="none" stroke="#73c1d9" stroke-width="1.39"
+        opacity="0.41"/><circle cx="273.7" cy="315.0" r="143.1"
+        fill="none" stroke="#73c1d9" stroke-width="1.32"
+        opacity="0.38"/><circle cx="273.7" cy="315.0" r="178.8"
+        fill="none" stroke="#73c1d9" stroke-width="1.25"
+        opacity="0.35"/><circle cx="273.7" cy="315.0" r="214.6"
+        fill="none" stroke="#73c1d9" stroke-width="1.18"
+        opacity="0.32"/><circle cx="273.7" cy="315.0" r="250.4"
+        fill="none" stroke="#73c1d9" stroke-width="1.11"
+        opacity="0.29"/><circle cx="273.7" cy="315.0" r="286.2"
+        fill="none" stroke="#73c1d9" stroke-width="1.04"
+        opacity="0.26"/><circle cx="273.7" cy="315.0" r="321.9"
+        fill="none" stroke="#73c1d9" stroke-width="0.97"
+        opacity="0.23"/><circle cx="273.7" cy="315.0" r="357.7"
+        fill="none" stroke="#73c1d9" stroke-width="0.90"
+        opacity="0.20"/><circle cx="273.7" cy="315.0" r="393.5"
+        fill="none" stroke="#73c1d9" stroke-width="0.83"
+        opacity="0.17"/><circle cx="273.7" cy="315.0" r="429.2"
+        fill="none" stroke="#73c1d9" stroke-width="0.76"
+        opacity="0.14"/><circle cx="273.7" cy="315.0" r="465.0"
+        fill="none" stroke="#73c1d9" stroke-width="0.69"
+        opacity="0.11"/><circle cx="273.7062534317374" cy="315" r="35.8" fill="#73c1d9" opacity="0.9"/>
+    <rect x="0" y="540" width="500" height="210" fill="#1a4150" opacity="0.72"/>
+    <line x1="0" y1="540" x2="500" y2="540" stroke="#73c1d9" stroke-width="2" opacity="0.75"/></g>
+  <rect width="500" height="750" fill="url(#fade-avatar-the-way-of-water)"/>
+  <rect width="500" height="750" fill="url(#vig-avatar-the-way-of-water)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-avatar-the-way-of-water)" opacity="0.4"/>
+
+  <line x1="46" y1="449.3" x2="454" y2="449.3"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="706.1"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2022</text>
+  <text x="454" y="706.1"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">7.6</text>
+
+  <text x="46" y="477.8"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">AVATAR:</text>
+      <text x="46" y="549.9"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">THE WAY</text>
+      <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">OF WATER</text>
+</svg>

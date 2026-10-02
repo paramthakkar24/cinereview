@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Avatar: The Way of Water backdrop">
+  <title>Avatar: The Way of Water — banner</title>
+  <defs>
+    <linearGradient id="bg-avatar-the-way-of-water-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#2e7997"/>
+      <stop offset="55%" stop-color="#245c73"/>
+      <stop offset="100%" stop-color="#1b4556"/>
+    </linearGradient>
+    <filter id="soft-avatar-the-way-of-water-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-avatar-the-way-of-water-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="185" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-avatar-the-way-of-water-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-avatar-the-way-of-water-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1b4556" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#1b4556" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#1b4556" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-avatar-the-way-of-water-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#73c1d9" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#73c1d9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-avatar-the-way-of-water-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-avatar-the-way-of-water-bn)"/>
+  <g><path d="M 334.0455728918314 -10 L 57.96898436546326 945 L 610.1221614181995 945 Z"
+        fill="#73c1d9" opacity="0.108"/><path d="M 908.3057892471553 -10 L 735.2569347023965 945 L 1081.354643791914 945 Z"
+        fill="#73c1d9" opacity="0.109"/><path d="M 1119.5193786621096 -10 L 944.9156951606276 945 L 1294.1230621635916 945 Z"
+        fill="#73c1d9" opacity="0.088"/><path d="M 529.1712876558304 -10 L 252.21893978118896 945 L 806.1236355304718 945 Z"
+        fill="#73c1d9" opacity="0.115"/><rect x="0" y="0" width="1600" height="90" fill="#1b4556" opacity="0.7"/></g>
+  <rect width="1600" height="900" fill="url(#side-avatar-the-way-of-water-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-avatar-the-way-of-water-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-avatar-the-way-of-water-bn)" opacity="0.42"/>
+</svg>

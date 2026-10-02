@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Get Out backdrop">
+  <title>Get Out — banner</title>
+  <defs>
+    <linearGradient id="bg-get-out-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#9c989c"/>
+      <stop offset="55%" stop-color="#716e71"/>
+      <stop offset="100%" stop-color="#555355"/>
+    </linearGradient>
+    <filter id="soft-get-out-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-get-out-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="73" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-get-out-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-get-out-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#555355" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#555355" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#555355" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-get-out-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#edeae8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#edeae8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-get-out-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-get-out-bn)"/>
+  <g><circle cx="800" cy="468" r="306" fill="#edeae8" opacity="0.92"/><rect x="647" y="523.1" width="306.0"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="689.5" y="562.9" width="221.0"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="713.5217391304348" y="602.6" width="173.0"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="728.9642857142857" y="642.4" width="142.1"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="739.7272727272727" y="682.2" width="120.5"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="747.6578947368421" y="722.0" width="104.7"
+        height="16.8" fill="#716e71" opacity="0.92"/><rect x="753.7441860465116" y="761.8" width="92.5"
+        height="16.8" fill="#716e71" opacity="0.92"/>
+    <rect x="0" y="648" width="1600" height="252" fill="#555355" opacity="0.78"/>
+    <line x1="0" y1="648" x2="1600" y2="648" stroke="#edeae8" stroke-width="2" opacity="0.75"/></g>
+  <rect width="1600" height="900" fill="url(#side-get-out-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-get-out-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-get-out-bn)" opacity="0.42"/>
+</svg>

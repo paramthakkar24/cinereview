@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="Interstellar poster">
+  <title>Interstellar (2014)</title>
+  <defs>
+    <linearGradient id="bg-interstellar" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#98663d"/>
+      <stop offset="60%" stop-color="#835732"/>
+      <stop offset="100%" stop-color="#624126"/>
+    </linearGradient>
+    <filter id="soft-interstellar" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-interstellar" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="87" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-interstellar" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-interstellar" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-interstellar)"/>
+  <g><path d="M 418.63851017784333 -10 L 311.59282857086515 787.5 L 525.6841917848215 787.5 Z"
+        fill="#e3af7e" opacity="0.125"/><path d="M 384.39863163046545 -10 L 284.76971354801213 787.5 L 484.02754971291876 787.5 Z"
+        fill="#e3af7e" opacity="0.122"/><path d="M 203.06565559934825 -10 L 145.01598998904228 787.5 L 261.1153212096542 787.5 Z"
+        fill="#e3af7e" opacity="0.075"/><path d="M 357.53756763879215 -10 L 271.36439948342746 787.5 L 443.71073579415685 787.5 Z"
+        fill="#e3af7e" opacity="0.101"/><rect x="0" y="0" width="500" height="75" fill="#624126" opacity="0.7"/></g>
+  <rect width="500" height="750" fill="url(#fade-interstellar)"/>
+  <rect width="500" height="750" fill="url(#vig-interstellar)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-interstellar)" opacity="0.4"/>
+
+  <line x1="46" y1="602.3" x2="454" y2="602.3"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="683.8"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2014</text>
+  <text x="454" y="683.8"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">8.7</text>
+
+  <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="47" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">INTERSTELLAR</text>
+</svg>

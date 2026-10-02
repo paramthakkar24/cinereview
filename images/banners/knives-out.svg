@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Knives Out backdrop">
+  <title>Knives Out — banner</title>
+  <defs>
+    <linearGradient id="bg-knives-out-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#71403b"/>
+      <stop offset="55%" stop-color="#55312f"/>
+      <stop offset="100%" stop-color="#402523"/>
+    </linearGradient>
+    <filter id="soft-knives-out-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-knives-out-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="94" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-knives-out-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-knives-out-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#402523" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#402523" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#402523" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-knives-out-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#b2847c" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#b2847c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-knives-out-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-knives-out-bn)"/>
+  <g><rect x="4.9" y="422.4" width="992" height="18" fill="#b2847c" opacity="0.55" transform="rotate(25.6 800 450)"/><path d="M 632.6 624.9 L 1471.1 340.7 L 1017.4 606.7 Z" fill="#b2847c" opacity="0.34"/><circle cx="951.4455534517765" cy="259.75979237118736" r="231.84685647860172" fill="#b2847c" opacity="0.42"/><circle cx="1116.3281513378024" cy="307.4926942354068" r="180.2062490656972" fill="#b2847c" opacity="0.42"/><path d="M 307.0 563.7 L 1115.2 118.6 L 926.4 608.7 Z" fill="#b2847c" opacity="0.34"/></g>
+  <rect width="1600" height="900" fill="url(#side-knives-out-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-knives-out-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-knives-out-bn)" opacity="0.42"/>
+</svg>

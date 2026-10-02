@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Browse Movies — CineReview</title>
+<meta name="description" content="Search and filter the full CineReview library by title, director, cast, genre, release year and score.">
+<meta name="theme-color" content="#08080b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='19'>🎬</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="movies">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="CineReview home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">CineReview</span>
+        <span class="brand__tag">Movie Reviews</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="main-nav" data-nav aria-label="Main">
+      <a class="nav__link" data-nav-link="home" href="index.html">Home</a>
+      <a class="nav__link" data-nav-link="movies" href="movies.html">Movies</a>
+      <a class="nav__link" data-nav-link="reviews" href="reviews.html">Reviews</a>
+      <a class="nav__link" data-nav-link="about" href="about.html">About</a>
+    </nav>
+
+    <div class="header__tools">
+      <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <form class="nav-search" id="nav-search" role="search" action="movies.html" method="get">
+      <label class="sr-only" for="nav-search-input">Search movies</label>
+      <div class="nav-search__field">
+        <input class="nav-search__input" id="nav-search-input" type="search" name="q" placeholder="Search movies, directors, cast" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="nav-search-results" aria-autocomplete="list">
+        <button class="btn btn--primary btn--sm" type="submit">Search</button>
+      </div>
+      <ul class="nav-search__results" id="nav-search-results" role="listbox" aria-label="Suggestions" hidden></ul>
+      <p class="nav-search__more" id="nav-search-more" hidden>
+        <button class="nav-search__all" type="submit"></button>
+      </p>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================================================================
+       Page heading
+  ==================================================================== -->
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span>Movies</span>
+      </nav>
+      <h1 class="page-head__title">Browse movies</h1>
+      <p class="page-head__lead">
+        Every film in the CineReview library. Search by title, director or cast, then narrow it down by genre,
+        release year or score. Press <kbd>/</kbd> to jump to search.
+      </p>
+      <p class="page-head__lead" id="movies-summary"></p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Search, filters and sort
+  ==================================================================== -->
+  <section class="section section--tight" aria-label="Search and filters">
+    <div class="wrap">
+
+      <div class="toolbar">
+        <div class="toolbar__row">
+          <div class="search">
+            <span class="search__icon" aria-hidden="true"></span>
+            <label class="sr-only" for="search">Search movies</label>
+            <input
+              type="search"
+              id="search"
+              placeholder="Search by title, director, cast or genre…"
+              autocomplete="off"
+              spellcheck="false">
+            <button class="search__clear" type="button" id="search-clear" aria-label="Clear search">&times;</button>
+          </div>
+
+          <div class="select">
+            <label class="sr-only" for="sort">Sort movies</label>
+            <select id="sort">
+              <option value="rating">Sort: Highest rated</option>
+              <option value="year">Sort: Newest first</option>
+              <option value="popular">Sort: Most rated</option>
+              <option value="title">Sort: A – Z</option>
+              <option value="runtime">Sort: Shortest first</option>
+            </select>
+            <span class="select__caret" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="toolbar__row">
+          <span class="toolbar__label" id="genre-label">Genre</span>
+          <div class="filter-group" id="filter-genres" role="group" aria-labelledby="genre-label"></div>
+        </div>
+
+        <div class="toolbar__row">
+          <span class="toolbar__label" id="tier-label">Score</span>
+          <div class="filter-group" id="filter-tiers" role="group" aria-labelledby="tier-label"></div>
+
+          <div class="select">
+            <label class="sr-only" for="filter-year">Release year</label>
+            <select id="filter-year"></select>
+            <span class="select__caret" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="toolbar__foot">
+          <p class="result-count" id="result-count">Loading movies…</p>
+          <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap">
+            <div class="active-filters" id="active-filters" style="display:none"></div>
+            <button class="btn btn--ghost btn--sm" type="button" id="filter-reset">Reset filters</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================================================================
+           Movie grid — populated by js/script.js
+      ================================================================== -->
+      <div class="grid" id="movie-grid" aria-live="polite"></div>
+
+      <!-- No results -->
+      <div class="empty" id="empty-state" hidden>
+        <span class="empty__icon" aria-hidden="true"></span>
+        <h2 class="empty__title">No movies match your search</h2>
+        <p class="empty__text">
+          Try a different title, clear the genre filters, or widen the score range.
+        </p>
+        <button class="btn btn--primary" type="button" onclick="document.getElementById('filter-reset').click()">
+          Reset all filters
+        </button>
+      </div>
+
+      <!-- Load more -->
+      <div class="mt-4 text-center" id="load-more-wrap" hidden>
+        <button class="btn btn--ghost" type="button" id="load-more">Load more</button>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__top">
+    <div class="footer__brand">
+      <a class="brand" href="index.html" aria-label="CineReview home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">CineReview</span>
+          <span class="brand__tag">Movie Reviews</span>
+        </span>
+      </a>
+      <p class="footer__blurb">
+        A small, obsessive movie review site. We watch the film, we write the review, and we tell you the truth about your evening.
+      </p>
+      <div class="footer__socials">
+        <a class="footer__social" href="#" aria-label="CineReview on X"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on Instagram"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on YouTube"><span aria-hidden="true"></span></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Browse</h3>
+      <div class="footer__links">
+        <a href="movies.html">All movies</a>
+        <a href="movies.html?sort=year">New releases</a>
+        <a href="movies.html?sort=rating">Top rated</a>
+        <a href="reviews.html">All reviews</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Genres</h3>
+      <div class="footer__links">
+        <a href="movies.html?genre=Sci-Fi">Sci-Fi</a>
+        <a href="movies.html?genre=Drama">Drama</a>
+        <a href="movies.html?genre=Thriller">Thriller</a>
+        <a href="movies.html?genre=Animation">Animation</a>
+        <a href="movies.html?genre=Comedy">Comedy</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">CineReview</h3>
+      <div class="footer__links">
+        <a href="about.html">About us</a>
+        <a href="about.html#mission">Our mission</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <span>&copy; <span id="year">2026</span> CineReview. A demonstration project — all reviews are original editorial content.</span>
+    <p class="footer__note">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".brand__mark").forEach(function (m) {
+    m.innerHTML = window.CR.icons.clapper;
+  });
+  document.querySelectorAll(".footer__social span").forEach(function (el, i) {
+    el.innerHTML = window.CR.icons[["x", "instagram", "youtube"][i]];
+  });
+
+  /* Static placeholders for the icon slots the CSS draws. */
+  document.querySelector(".search__icon").innerHTML = window.CR.icons.search;
+  document.querySelectorAll(".select__caret").forEach(function (el) {
+    el.innerHTML = window.CR.icons.caret;
+  });
+  document.querySelector(".empty__icon").innerHTML = window.CR.icons.inbox;
+</script>
+
+</body>
+</html>

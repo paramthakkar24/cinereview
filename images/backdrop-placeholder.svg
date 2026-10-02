@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-label="Backdrop unavailable">
+  <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#1b1b24"/>
+      <stop offset="1" stop-color="#08080b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#b)"/>
+  <g stroke="#33333f" stroke-width="2.5" fill="none">
+    <rect x="536" y="266" width="208" height="188" rx="12"/>
+    <path d="M536 332h208M612 266v188M536 396l72-52 72 52 64-44"/>
+  </g>
+  <text x="640" y="512" fill="#6f6f7d" font-family="Georgia, serif" font-size="26" text-anchor="middle">Backdrop unavailable</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Mad Max: Fury Road backdrop">
+  <title>Mad Max: Fury Road — banner</title>
+  <defs>
+    <linearGradient id="bg-mad-max-fury-road-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#9d5130"/>
+      <stop offset="55%" stop-color="#773e26"/>
+      <stop offset="100%" stop-color="#592f1d"/>
+    </linearGradient>
+    <filter id="soft-mad-max-fury-road-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-mad-max-fury-road-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="143" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-mad-max-fury-road-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-mad-max-fury-road-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#592f1d" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#592f1d" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#592f1d" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-mad-max-fury-road-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#e39771" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#e39771" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-mad-max-fury-road-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-mad-max-fury-road-bn)"/>
+  <g><circle cx="800" cy="468" r="306" fill="#e39771" opacity="0.92"/><rect x="647" y="523.1" width="306.0"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="689.5" y="562.9" width="221.0"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="713.5217391304348" y="602.6" width="173.0"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="728.9642857142857" y="642.4" width="142.1"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="739.7272727272727" y="682.2" width="120.5"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="747.6578947368421" y="722.0" width="104.7"
+        height="16.8" fill="#773e26" opacity="0.92"/><rect x="753.7441860465116" y="761.8" width="92.5"
+        height="16.8" fill="#773e26" opacity="0.92"/>
+    <rect x="0" y="648" width="1600" height="252" fill="#592f1d" opacity="0.78"/>
+    <line x1="0" y1="648" x2="1600" y2="648" stroke="#e39771" stroke-width="2" opacity="0.75"/></g>
+  <rect width="1600" height="900" fill="url(#side-mad-max-fury-road-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-mad-max-fury-road-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-mad-max-fury-road-bn)" opacity="0.42"/>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Parasite backdrop">
+  <title>Parasite — banner</title>
+  <defs>
+    <linearGradient id="bg-parasite-bn" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0%" stop-color="#388765"/>
+      <stop offset="55%" stop-color="#2a624b"/>
+      <stop offset="100%" stop-color="#204a38"/>
+    </linearGradient>
+    <filter id="soft-parasite-bn" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="64"/>
+    </filter>
+    
+    <filter id="grain-parasite-bn" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="80" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-parasite-bn" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="side-parasite-bn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#204a38" stop-opacity="0.92"/>
+      <stop offset="52%" stop-color="#204a38" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#204a38" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="halo-parasite-bn" cx="72%" cy="46%" r="46%">
+      <stop offset="0%" stop-color="#7dd2a8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7dd2a8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg-parasite-bn)"/>
+  <rect width="1600" height="900" fill="url(#halo-parasite-bn)"/>
+  <g><ellipse cx="800" cy="495.00000000000006" rx="100.0" ry="36.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.71"
+        opacity="0.42"/><ellipse cx="800" cy="495.00000000000006" rx="200.0" ry="72.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.62"
+        opacity="0.40"/><ellipse cx="800" cy="495.00000000000006" rx="300.0" ry="108.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.53"
+        opacity="0.37"/><ellipse cx="800" cy="495.00000000000006" rx="400.0" ry="144.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.44"
+        opacity="0.35"/><ellipse cx="800" cy="495.00000000000006" rx="500.0" ry="180.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.35"
+        opacity="0.32"/><ellipse cx="800" cy="495.00000000000006" rx="600.0" ry="216.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.26"
+        opacity="0.29"/><ellipse cx="800" cy="495.00000000000006" rx="700.0" ry="252.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.17"
+        opacity="0.27"/><ellipse cx="800" cy="495.00000000000006" rx="800.0" ry="288.0"
+        fill="none" stroke="#7dd2a8" stroke-width="1.08"
+        opacity="0.24"/><ellipse cx="800" cy="495.00000000000006" rx="900.0" ry="324.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.99"
+        opacity="0.22"/><ellipse cx="800" cy="495.00000000000006" rx="1000.0" ry="360.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.90"
+        opacity="0.19"/><ellipse cx="800" cy="495.00000000000006" rx="1100.0" ry="396.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.81"
+        opacity="0.16"/><ellipse cx="800" cy="495.00000000000006" rx="1200.0" ry="432.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.72"
+        opacity="0.14"/><ellipse cx="800" cy="495.00000000000006" rx="1300.0" ry="468.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.63"
+        opacity="0.11"/><ellipse cx="800" cy="495.00000000000006" rx="1400.0" ry="504.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.54"
+        opacity="0.09"/><ellipse cx="800" cy="495.00000000000006" rx="1500.0" ry="540.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.45"
+        opacity="0.06"/><ellipse cx="800" cy="495.00000000000006" rx="1600.0" ry="576.0"
+        fill="none" stroke="#7dd2a8" stroke-width="0.36"
+        opacity="0.03"/><circle cx="800" cy="495.00000000000006" r="54" fill="#7dd2a8" opacity="0.9"/></g>
+  <rect width="1600" height="900" fill="url(#side-parasite-bn)"/>
+  <rect width="1600" height="900" fill="url(#vig-parasite-bn)" opacity="0.8"/>
+  <rect width="1600" height="900" filter="url(#grain-parasite-bn)" opacity="0.42"/>
+</svg>

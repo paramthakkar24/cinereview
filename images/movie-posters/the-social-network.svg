@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 750" width="500" height="750" role="img" aria-label="The Social Network poster">
+  <title>The Social Network (2010)</title>
+  <defs>
+    <linearGradient id="bg-the-social-network" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#2e5074"/>
+      <stop offset="60%" stop-color="#254564"/>
+      <stop offset="100%" stop-color="#1c344b"/>
+    </linearGradient>
+    <filter id="soft-the-social-network" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    
+    <filter id="grain-the-social-network" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="129" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.28"/></feComponentTransfer>
+    </filter>
+    <radialGradient id="vig-the-social-network" cx="50%" cy="42%" r="78%">
+      <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.38"/>
+    </radialGradient>
+    <linearGradient id="fade-the-social-network" x1="0" y1="0.35" x2="0" y2="1">
+      <stop offset="0%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="62%" stop-color="#000" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="500" height="750" fill="url(#bg-the-social-network)"/>
+  <g><path d="M 156.44219286274165 -10 L 52.24542619660497 787.5 L 260.63895952887833 787.5 Z"
+        fill="#739abb" opacity="0.079"/><path d="M 128.7361635407433 -10 L 27.36687012482436 787.5 L 230.10545695666224 787.5 Z"
+        fill="#739abb" opacity="0.101"/><path d="M 312.6250447938219 -10 L 257.585271159187 787.5 L 367.66481842845684 787.5 Z"
+        fill="#739abb" opacity="0.086"/><path d="M 374.40892801154405 -10 L 304.92285957559943 787.5 L 443.89499644748867 787.5 Z"
+        fill="#739abb" opacity="0.115"/><rect x="0" y="0" width="500" height="75" fill="#1c344b" opacity="0.7"/></g>
+  <rect width="500" height="750" fill="url(#fade-the-social-network)"/>
+  <rect width="500" height="750" fill="url(#vig-the-social-network)" opacity="0.55"/>
+  <rect width="500" height="750" filter="url(#grain-the-social-network)" opacity="0.4"/>
+
+  <line x1="46" y1="449.3" x2="454" y2="449.3"
+    stroke="#ffffff" stroke-width="1" opacity="0.32"/>
+  <text x="46" y="706.1"
+    font-family="Helvetica, Arial, sans-serif" font-size="21" font-weight="600"
+    fill="#ffffff" opacity="0.82" letter-spacing="5">2010</text>
+  <text x="454" y="706.1"
+    text-anchor="end" font-family="Helvetica, Arial, sans-serif" font-size="18"
+    fill="#ffffff" opacity="0.55" letter-spacing="3">7.8</text>
+
+  <text x="46" y="477.8"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">THE</text>
+      <text x="46" y="549.9"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">SOCIAL</text>
+      <text x="46" y="622.0"
+          font-family="Georgia, 'Times New Roman', serif" font-size="68" font-weight="700"
+          fill="#ffffff" letter-spacing="-1.4">NETWORK</text>
+</svg>

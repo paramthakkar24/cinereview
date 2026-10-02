@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About CineReview — Our Mission, Our Critics, Contact Us</title>
+<meta name="description" content="Who we are, how we score films, why honest movie reviews matter, and how to reach the CineReview team.">
+<meta name="theme-color" content="#08080b">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='19'>🎬</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="about">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="CineReview home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">CineReview</span>
+        <span class="brand__tag">Movie Reviews</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="main-nav" data-nav aria-label="Main">
+      <a class="nav__link" data-nav-link="home" href="index.html">Home</a>
+      <a class="nav__link" data-nav-link="movies" href="movies.html">Movies</a>
+      <a class="nav__link" data-nav-link="reviews" href="reviews.html">Reviews</a>
+      <a class="nav__link" data-nav-link="about" href="about.html">About</a>
+    </nav>
+
+    <div class="header__tools">
+      <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <form class="nav-search" id="nav-search" role="search" action="movies.html" method="get">
+      <label class="sr-only" for="nav-search-input">Search movies</label>
+      <div class="nav-search__field">
+        <input class="nav-search__input" id="nav-search-input" type="search" name="q" placeholder="Search movies, directors, cast" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="nav-search-results" aria-autocomplete="list">
+        <button class="btn btn--primary btn--sm" type="submit">Search</button>
+      </div>
+      <ul class="nav-search__results" id="nav-search-results" role="listbox" aria-label="Suggestions" hidden></ul>
+      <p class="nav-search__more" id="nav-search-more" hidden>
+        <button class="nav-search__all" type="submit"></button>
+      </p>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================================================================
+       Page heading
+  ==================================================================== -->
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span>About</span>
+      </nav>
+      <h1 class="page-head__title">About CineReview</h1>
+      <p class="page-head__lead">
+        We are a small team that watches films all day so that you do not have to gamble an evening on one.
+        Here is what we do, how we arrive at a score, and how to get hold of us.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Stat band — filled from the dataset
+  ==================================================================== -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="stat-band" id="about-stats" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Mission + what you can find here
+  ==================================================================== -->
+  <section class="section section--alt" id="mission">
+    <div class="wrap about-grid">
+      <div data-reveal>
+        <div class="prose-block">
+          <h2 class="prose-block__title">Our mission</h2>
+          <p class="about-lead">
+            To make the decision of what to watch obvious, honest and quick — without pretending that
+            a film is better than it is.
+          </p>
+          <p>
+            There is more to choose from on any given Friday than anyone has time to see. CineReview exists to
+            close that gap. Every film in our library gets the same treatment: watched in full, written up at
+            length, and given a single score out of ten that we are willing to defend.
+          </p>
+          <p>
+            We do not take money for coverage, we do not run trailers as advertisements, and we do not publish
+            a review for a film we have not watched. Where a movie falls short, we say so in the same review
+            as where it succeeds — because a list of only the good things is not a review, it is a brochure.
+          </p>
+        </div>
+
+        <div class="prose-block">
+          <h2 class="prose-block__title">How we score</h2>
+          <p>
+            A CineReview score is out of ten, and we do not use half stars. It reflects the film as a whole —
+            writing, performances, direction, craft and the thing that is hardest to quantify, which is whether
+            the film knows what it is doing.
+          </p>
+          <p>
+            Alongside the score we publish the full reader breakdown, so you can see whether a 7.4 was loved by
+            everyone who saw it or split the room down the middle. Our scores are also cross-referenced against a
+            broader critics index, which is shown separately and never blended into our own number.
+          </p>
+        </div>
+      </div>
+
+      <aside data-reveal data-reveal-delay="120">
+        <div class="prose-block">
+          <h2 class="prose-block__title">What you can find here</h2>
+          <p class="muted" style="margin-bottom:1rem">Five things, and nothing we cannot deliver on.</p>
+
+          <div class="qa" style="gap:.75rem">
+            <div class="qa__item" style="padding:.9rem 1rem">
+              <span class="qa__icon" aria-hidden="true"></span>
+              <div>
+                <h3 class="qa__q">Full reviews</h3>
+                <p class="qa__a">Not synopses. Every film has a written verdict you can read end to end.</p>
+              </div>
+            </div>
+
+            <div class="qa__item" style="padding:.9rem 1rem">
+              <span class="qa__icon" aria-hidden="true"></span>
+              <div>
+                <h3 class="qa__q">Scores and breakdowns</h3>
+                <p class="qa__a">One number out of ten, plus the five-star distribution behind it.</p>
+              </div>
+            </div>
+
+            <div class="qa__item" style="padding:.9rem 1rem">
+              <span class="qa__icon" aria-hidden="true"></span>
+              <div>
+                <h3 class="qa__q">Pros and cons</h3>
+                <p class="qa__a">The case for and the case against, side by side, on every film.</p>
+              </div>
+            </div>
+
+            <div class="qa__item" style="padding:.9rem 1rem">
+              <span class="qa__icon" aria-hidden="true"></span>
+              <div>
+                <h3 class="qa__q">Your own ratings</h3>
+                <p class="qa__a">Rate any film and your score is remembered. Both stay on your device.</p>
+              </div>
+            </div>
+
+            <div class="qa__item" style="padding:.9rem 1rem">
+              <span class="qa__icon" aria-hidden="true"></span>
+              <div>
+                <h3 class="qa__q">Related films</h3>
+                <p class="qa__a">When a film is not for you, four close alternatives that probably are.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Why reviews are useful
+  ==================================================================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">The point of all this</span>
+          <h2 class="section__title">Why movie reviews are worth reading</h2>
+          <p class="section__note">
+            Reviews are not just a score attached to a title. They are a way of thinking about a film together.
+          </p>
+        </div>
+      </div>
+
+      <div class="value-grid">
+        <article class="value" data-reveal>
+          <span class="value__num" aria-hidden="true">01</span>
+          <span class="value__icon" aria-hidden="true"></span>
+          <h3 class="value__title">Time is the real currency</h3>
+          <p class="value__text">
+            Two hours is a long way from an ordinary Tuesday. Knowing a film is a waste before you spend it
+            is the single most useful thing a review can do for you.
+          </p>
+        </article>
+
+        <article class="value" data-reveal data-reveal-delay="80">
+          <span class="value__num" aria-hidden="true">02</span>
+          <span class="value__icon" aria-hidden="true"></span>
+          <h3 class="value__title">A second opinion catches what you miss</h3>
+          <p class="value__text">
+            We watch for craft: how a cut lands, what a performance withholds, whether the third act earns
+            its ending. That attention frees you to watch for what the film makes you feel.
+          </p>
+        </article>
+
+        <article class="value" data-reveal data-reveal-delay="160">
+          <span class="value__num" aria-hidden="true">03</span>
+          <span class="value__icon" aria-hidden="true"></span>
+          <h3 class="value__title">Ratings find your people</h3>
+          <p class="value__text">
+            A breakdown tells you more than a total. A 7.5 that split the room is a very different proposition
+            from a 7.5 that nobody argued about — and worth knowing before you press play.
+          </p>
+        </article>
+
+        <article class="value" data-reveal data-reveal-delay="240">
+          <span class="value__num" aria-hidden="true">04</span>
+          <span class="value__icon" aria-hidden="true"></span>
+          <h3 class="value__title">Discoveries you would not have made</h3>
+          <p class="value__text">
+            The best reason to read reviews is that they surface films outside your habits — an animation you
+            did not think of watching, a documentary that rewrites what you assumed about a subject.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       The team
+  ==================================================================== -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Who writes here</span>
+          <h2 class="section__title">Our critics</h2>
+          <p class="section__note">
+            Five writers, five different decades of filmgoing between them. Each review is credited to the
+            person who actually wrote it.
+          </p>
+        </div>
+      </div>
+
+      <div class="people" id="about-people" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Contact
+  ==================================================================== -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact" data-reveal>
+        <div>
+          <h2 class="contact__title">Get in touch</h2>
+          <p class="contact__text">
+            Corrections, disagreements, film suggestions and review requests are all welcome. We read
+            everything, and we reply to the good arguments.
+          </p>
+
+          <div class="contact__list">
+            <div class="contact__row" data-contact-icon="mail">
+              <span class="sr-only">Email:</span>
+              <a class="contact__link" href="mailto:hello@cinereview.example">hello@cinereview.example</a>
+              <span>&mdash; general enquiries</span>
+            </div>
+            <div class="contact__row" data-contact-icon="edit">
+              <span class="sr-only">Editorial:</span>
+              <a class="contact__link" href="mailto:editorial@cinereview.example">editorial@cinereview.example</a>
+              <span>&mdash; reviews and corrections</span>
+            </div>
+            <div class="contact__row" data-contact-icon="pin">
+              <span class="sr-only">Studio:</span>
+              <span>Unit 4, Rialto House</span>
+              <span>&mdash; London, WC2</span>
+            </div>
+            <div class="contact__row" data-contact-icon="clock">
+              <span class="sr-only">Hours:</span>
+              <span>Mon&ndash;Fri, 10am&ndash;6pm GMT</span>
+              <span>&mdash; reply within two days</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="contact-form" novalidate>
+          <p class="muted contact__note" id="contact-note">
+            This is a demonstration site, so there is no server behind the form. Fill it in and it will
+            open your email client with the message ready to send.
+          </p>
+
+          <div class="field">
+            <label for="contact-name">Your name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Alex Doyle" autocomplete="name" maxlength="60"
+                   aria-describedby="contact-name-error">
+            <span class="field__error" id="contact-name-error" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="contact-email">Email address</label>
+            <input type="email" id="contact-email" name="email" placeholder="alex@example.com" autocomplete="email" maxlength="120"
+                   aria-describedby="contact-email-error">
+            <span class="field__error" id="contact-email-error" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell us what is on your mind…" maxlength="800"
+                      aria-describedby="contact-message-error"></textarea>
+            <span class="field__error" id="contact-message-error" role="alert"></span>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">Send message</button>
+            <span class="muted" id="contact-status" role="status" aria-live="polite" style="font-size:var(--fs-sm)"></span>
+          </div>
+        </form>
+      </div>
+
+      <!-- Social links -->
+      <div class="mt-4" data-reveal>
+        <h3 class="footer__title">Follow along</h3>
+        <div class="socials">
+          <a class="social" href="#" data-social="x"><span class="social__icon" aria-hidden="true"></span>X / Twitter</a>
+          <a class="social" href="#" data-social="instagram"><span class="social__icon" aria-hidden="true"></span>Instagram</a>
+          <a class="social" href="#" data-social="youtube"><span class="social__icon" aria-hidden="true"></span>YouTube</a>
+          <a class="social" href="#" data-social="facebook"><span class="social__icon" aria-hidden="true"></span>Facebook</a>
+          <a class="social" href="#" data-social="mail"><span class="social__icon" aria-hidden="true"></span>Newsletter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__top">
+    <div class="footer__brand">
+      <a class="brand" href="index.html" aria-label="CineReview home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__name">CineReview</span>
+          <span class="brand__tag">Movie Reviews</span>
+        </span>
+      </a>
+      <p class="footer__blurb">
+        A small, obsessive movie review site. We watch the film, we write the review, and we tell you the truth about your evening.
+      </p>
+      <div class="footer__socials">
+        <a class="footer__social" href="#" aria-label="CineReview on X"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on Instagram"><span aria-hidden="true"></span></a>
+        <a class="footer__social" href="#" aria-label="CineReview on YouTube"><span aria-hidden="true"></span></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Browse</h3>
+      <div class="footer__links">
+        <a href="movies.html">All movies</a>
+        <a href="movies.html?sort=year">New releases</a>
+        <a href="movies.html?sort=rating">Top rated</a>
+        <a href="reviews.html">All reviews</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">Genres</h3>
+      <div class="footer__links">
+        <a href="movies.html?genre=Sci-Fi">Sci-Fi</a>
+        <a href="movies.html?genre=Drama">Drama</a>
+        <a href="movies.html?genre=Thriller">Thriller</a>
+        <a href="movies.html?genre=Animation">Animation</a>
+        <a href="movies.html?genre=Comedy">Comedy</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="footer__title">CineReview</h3>
+      <div class="footer__links">
+        <a href="about.html">About us</a>
+        <a href="about.html#mission">Our mission</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap footer__bottom">
+    <span>&copy; <span id="year">2026</span> CineReview. A demonstration project — all reviews are original editorial content.</span>
+    <p class="footer__note">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".brand__mark").forEach(function (m) {
+    m.innerHTML = window.CR.icons.clapper;
+  });
+  document.querySelectorAll(".footer__social span").forEach(function (el, i) {
+    el.innerHTML = window.CR.icons[["x", "instagram", "youtube"][i]];
+  });
+
+  /* Icon slots this page uses that the CSS does not draw itself. */
+  document.querySelectorAll(".qa__icon").forEach(function (el, i) {
+    var keys = ["film", "star", "quote", "user", "link"];
+    el.innerHTML = window.CR.icons[keys[i % keys.length]];
+  });
+
+  document.querySelectorAll(".value__icon").forEach(function (el, i) {
+    var keys = ["clock", "eye", "stars", "sparkle"];
+    el.innerHTML = window.CR.icons[keys[i % keys.length]];
+  });
+
+  document.querySelectorAll(".contact__row").forEach(function (row) {
+    var name = row.getAttribute("data-contact-icon");
+    var host = document.createElement("span");
+    host.innerHTML = window.CR.icons[name] || window.CR.icons.mail;
+    var svg = host.firstElementChild;
+    if (svg) { svg.setAttribute("aria-hidden", "true"); row.insertBefore(svg, row.firstChild); }
+  });
+
+  document.querySelectorAll(".social").forEach(function (a) {
+    var name = a.getAttribute("data-social");
+    var host = document.createElement("span");
+    host.className = "social__icon";
+    host.innerHTML = window.CR.icons[name] || window.CR.icons.link;
+    var svg = host.firstElementChild;
+    if (svg) svg.setAttribute("aria-hidden", "true");
+    a.insertBefore(host, a.firstChild);
+  });
+</script>
+
+</body>
+</html>
