@@ -4259,6 +4259,12 @@ body[data-page="home"] .header.is-stuck {
 .band-navy .btn--ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .band-navy .btn--ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; color: #fff; }
 
+/* No gap before the footer — the last section flows straight into it (and a
+   navy CTA band merges seamlessly with the navy footer). */
+main > .section:last-child,
+main > section:last-child { padding-bottom: 0; }
+footer { margin-top: 0; }
+
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .card:hover .card__media, .card:hover .card__poster,
