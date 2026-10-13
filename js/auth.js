@@ -206,47 +206,65 @@
         '<a class="btn btn--primary btn--sm account__signup" href="signup.html">Sign up</a>';
     }
 
+    menuControllers = [];
     slots.forEach(function (slot) {
       slot.innerHTML = html;
       wire(slot);
     });
   }
 
+  /* The profile menu: closed by default; opens on hover (desktop) and/or a
+     click "pin". A CSS bridge lets the pointer travel from the button into the
+     dropdown without it closing. Leaving closes it unless pinned by a click;
+     outside-click and Escape always close and unpin. The dropdown is absolutely
+     positioned, so opening it never pushes the page layout down. */
   var closersBound = false;
+  var menuControllers = [];
+
   function closeAllMenus() {
-    document.querySelectorAll("[data-account-dropdown]").forEach(function (d) {
-      d.setAttribute("hidden", "");
-    });
-    document.querySelectorAll("[data-account-toggle]").forEach(function (t) {
-      t.setAttribute("aria-expanded", "false");
+    menuControllers.forEach(function (c) {
+      c.state.pinned = false;
+      c.state.hovering = false;
+      c.apply();
     });
   }
 
   function wire(slot) {
     var toggle = slot.querySelector("[data-account-toggle]");
     var dropdown = slot.querySelector("[data-account-dropdown]");
+    var menu = slot.querySelector("[data-account-menu]");
     var out = slot.querySelector("[data-account-signout]");
 
-    // On hover-capable desktops the menu is revealed purely by CSS :hover, so we
-    // must NOT also toggle `hidden` on click — that left it stuck open. Only bind
-    // the click toggle on touch devices (no hover).
     var hoverMenu = false;
     try { hoverMenu = window.matchMedia("(hover: hover) and (pointer: fine)").matches; } catch (e) {}
 
-    if (toggle && dropdown) {
-      if (!hoverMenu) {
-        toggle.addEventListener("click", function (e) {
-          e.stopPropagation();
-          var willOpen = dropdown.hasAttribute("hidden");
-          closeAllMenus();
-          if (willOpen) {
-            dropdown.removeAttribute("hidden");
-            toggle.setAttribute("aria-expanded", "true");
-          }
-        });
+    if (toggle && dropdown && menu) {
+      var state = { hovering: false, pinned: false };
+      var apply = function () {
+        var open = state.hovering || state.pinned;
+        if (open) {
+          dropdown.removeAttribute("hidden");
+          toggle.setAttribute("aria-expanded", "true");
+        } else {
+          dropdown.setAttribute("hidden", "");
+          toggle.setAttribute("aria-expanded", "false");
+        }
+      };
+
+      if (hoverMenu) {
+        menu.addEventListener("mouseenter", function () { state.hovering = true; apply(); });
+        menu.addEventListener("mouseleave", function () { state.hovering = false; apply(); });
       }
-      // Keep clicks inside the menu (e.g. the links) from closing it early.
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation();
+        state.pinned = !state.pinned;
+        apply();
+      });
+      // Clicks inside the menu (the links / log out) must not close it early.
       dropdown.addEventListener("click", function (e) { e.stopPropagation(); });
+
+      menuControllers.push({ state: state, apply: apply });
+      apply(); // start closed
     }
 
     // Bind the outside-click / Escape closers exactly once, not per render.

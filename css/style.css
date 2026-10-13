@@ -3807,43 +3807,47 @@ button.chip { cursor: pointer; }
    feel. Dark, cool palette; green primary; blue/amber secondary.
 ============================================================================= */
 :root {
-  /* Surfaces — LIGHT (adxenex): white page, soft blue-gray washes */
-  --bg: #ffffff;
-  --bg-2: #f4f7fd;
-  --surface: #ffffff;
-  --surface-2: #f4f7fd;
-  --surface-3: #eef2fb;
+  /* Surfaces — one light system (per the agreed palette) */
+  --bg: #F5F7FC;          /* main page background */
+  --bg-2: #EEF3FB;        /* soft section background */
+  --surface: #FFFFFF;     /* cards */
+  --surface-2: #EEF3FB;
+  --surface-3: #E3EBF7;
 
-  /* Primary — brand blue (matches adxenex), tuned for a light background */
-  --accent: #2563eb;
-  --accent-2: #1d4ed8;
-  --accent-soft: rgba(37, 99, 235, 0.10);
-  --accent-line: rgba(37, 99, 235, 0.30);
-  --on-accent: #ffffff;
+  /* Primary — action blue */
+  --accent: #2864F0;
+  --accent-2: #1A50D8;    /* hover / darker */
+  --accent-soft: rgba(40, 100, 240, 0.10);
+  --accent-line: rgba(40, 100, 240, 0.28);
+  --on-accent: #FFFFFF;
 
   /* Secondary accents */
-  --blue: #2563eb;
-  --blue-soft: rgba(37, 99, 235, 0.10);
+  --blue: #2864F0;
+  --blue-soft: rgba(40, 100, 240, 0.10);
 
-  /* Scores — warm amber, darkened so it reads on white */
-  --gold: #b9770a;
-  --gold-2: #a8690a;
-  --gold-soft: rgba(185, 119, 10, 0.12);
+  /* Navy — feature sections, footer, important elements */
+  --navy: #101D43;
+  --navy-2: #172A58;
 
-  /* Text — navy ink + slate muted */
-  --text: #101d41;
-  --text-2: #55607a;
-  --text-3: #8a94ab;
-  --title: #101d41;
-  --nav-link: #55607a;
-  --nav-link-hover: #2563eb;
+  /* Rating accent */
+  --gold: #D99A20;
+  --gold-2: #C0871A;
+  --gold-soft: rgba(217, 154, 32, 0.14);
 
-  /* Lines & shadows — navy-tinted, subtle */
-  --line: #e6ebf4;
-  --line-2: #d6dfee;
-  --shadow-sm: 0 2px 6px rgba(16, 29, 65, 0.06);
-  --shadow: 0 10px 28px rgba(16, 29, 65, 0.10);
-  --shadow-lg: 0 24px 50px rgba(16, 29, 65, 0.14);
+  /* Text */
+  --text: #152447;        /* main text */
+  --text-2: #657391;      /* secondary text */
+  --text-3: #93A0BA;
+  --title: #101D43;
+  --nav-link: #657391;
+  --nav-link-hover: #2864F0;
+
+  /* Lines & shadows */
+  --line: #DCE4F2;        /* border */
+  --line-2: #CBD6EA;
+  --shadow-sm: 0 2px 6px rgba(16, 29, 67, 0.06);
+  --shadow: 0 10px 28px rgba(16, 29, 67, 0.09);
+  --shadow-lg: 0 24px 50px rgba(16, 29, 67, 0.13);
 
   /* Type system from the adxenex design: Manrope for headings/brand, DM Sans
      for body — professional and modern. */
@@ -4045,7 +4049,9 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 /* On desktop, reveal the profile menu on hover too (not click-only), with an
    invisible bridge over the gap so moving the pointer into it doesn't close it. */
 @media (hover: hover) and (pointer: fine) {
-  .account__menu:hover .account__dropdown { display: flex !important; }
+  /* Invisible bridge over the gap between the button and the dropdown so the
+     pointer can travel into the menu without a mouseleave closing it. Only
+     present while the dropdown is open. Open/close is driven by JS. */
   .account__dropdown::before {
     content: "";
     position: absolute;
@@ -4145,7 +4151,7 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .card--rank .card__media { border-radius: 0; }
 
 /* Dark navy footer with uppercase Manrope headers. ------------------------- */
-.footer { background: #0a1230; color: #aebbd8; border-top: 0; padding: 4rem 0 1.75rem; }
+.footer { background: var(--navy); color: #aebbd8; border-top: 0; padding: 4rem 0 1.75rem; }
 .footer__title { color: #fff; text-transform: uppercase; letter-spacing: 0.09em; font-size: 0.78rem; font-family: var(--display); font-weight: 700; }
 .footer__links a, .footer__blurb { color: #aebbd8; }
 .footer__links a:hover { color: #fff; }
@@ -4229,10 +4235,10 @@ body[data-page="home"] .header.is-stuck {
 
 /* The home scoreboard becomes a navy feature card (adxenex "What to expect"). */
 .scoreboard {
-  background: linear-gradient(162deg, #142452 0%, #0b1430 100%);
+  background: linear-gradient(162deg, var(--navy-2) 0%, var(--navy) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: #e9eefb;
-  box-shadow: 0 26px 54px rgba(16, 29, 65, 0.24);
+  box-shadow: 0 26px 54px rgba(16, 29, 67, 0.24);
 }
 .scoreboard__head { border-bottom-color: rgba(255, 255, 255, 0.12); }
 .scoreboard__title { color: #fff; }
@@ -4246,7 +4252,7 @@ body[data-page="home"] .header.is-stuck {
 
 /* Reusable navy CTA band — add class "band-navy" to a <section>. */
 .band-navy {
-  background: linear-gradient(162deg, #142452 0%, #0a1230 100%);
+  background: linear-gradient(162deg, var(--navy-2) 0%, var(--navy) 100%);
   color: #e9eefb;
 }
 .band-navy .section__kicker { color: #9fc0ff; }
