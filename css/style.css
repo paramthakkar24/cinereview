@@ -4223,6 +4223,42 @@ body[data-page="home"] .header.is-stuck {
   box-shadow: 0 6px 22px rgba(16, 29, 65, 0.08);
 }
 
+/* =============================================================================
+   34. NAVY FEATURE SECTIONS — the navy / white / blue mixture from adxenex
+============================================================================= */
+
+/* The home scoreboard becomes a navy feature card (adxenex "What to expect"). */
+.scoreboard {
+  background: linear-gradient(162deg, #142452 0%, #0b1430 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e9eefb;
+  box-shadow: 0 26px 54px rgba(16, 29, 65, 0.24);
+}
+.scoreboard__head { border-bottom-color: rgba(255, 255, 255, 0.12); }
+.scoreboard__title { color: #fff; }
+.scoreboard__avg { color: #ffd166; }
+.scoreboard .section__kicker { color: #9fc0ff; }
+.score-row__label { color: #aebbd8; }
+.score-row__bar { background: rgba(255, 255, 255, 0.1); }
+.score-row--tier .score-row__fill { background: linear-gradient(90deg, #2f6bff, #5b9bff); }
+.score-row__value { color: #aebbd8; }
+.scoreboard__foot { border-top-color: rgba(255, 255, 255, 0.12); color: #8ea0c6; }
+
+/* Reusable navy CTA band — add class "band-navy" to a <section>. */
+.band-navy {
+  background: linear-gradient(162deg, #142452 0%, #0a1230 100%);
+  color: #e9eefb;
+}
+.band-navy .section__kicker { color: #9fc0ff; }
+.band-navy .section__title,
+.band-navy h2 { color: #fff; }
+.band-navy .section__note,
+.band-navy p { color: #aebbd8; }
+.band-navy .btn--primary { background: #fff; color: #101d41; border-color: #fff; }
+.band-navy .btn--primary:hover { background: #e7efff; color: var(--accent-2); border-color: #e7efff; }
+.band-navy .btn--ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.45); color: #fff; }
+.band-navy .btn--ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; color: #fff; }
+
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .card:hover .card__media, .card:hover .card__poster,
