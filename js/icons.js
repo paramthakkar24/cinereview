@@ -35,9 +35,19 @@
   const ICONS = {
     /* --- brand & navigation --- */
     clapper:
-      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
-      '<path d="M2.4 5.2l1.9-.8 16 4-1.2 3.4-.6-.15L2.6 7.6z"/>' +
-      '<path d="M3.6 8.9c0-.7.5-1.2 1.2-1.2h14.4c.7 0 1.2.5 1.2 1.2v10.5c0 .7-.5 1.2-1.2 1.2H4.8c-.7 0-1.2-.5-1.2-1.2z"/>' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      /* body */
+      '<rect x="3.2" y="9" width="17.6" height="11.3" rx="2.2" fill="currentColor"/>' +
+      /* angled clapper top bar */
+      '<path d="M3.5 9 4.7 5.0 20.5 7.3 20.3 9Z" fill="currentColor"/>' +
+      /* diagonal stripes on the bar */
+      '<g stroke="#241436" stroke-width="1.4" stroke-linecap="round" opacity="0.5">' +
+      '<line x1="7.4" y1="4.6" x2="6.1" y2="8.8"/>' +
+      '<line x1="11.4" y1="5.2" x2="10.1" y2="8.9"/>' +
+      '<line x1="15.4" y1="5.8" x2="14.1" y2="9"/>' +
+      "</g>" +
+      /* play glyph on the body */
+      '<path d="M10 12.4 15 15.1 10 17.8Z" fill="#241436" opacity="0.55"/>' +
       "</svg>",
     menu: stroke('<path d="M3 6h18M3 12h18M3 18h18"/>'),
     close: stroke('<path d="M18 6L6 18M6 6l12 12"/>'),

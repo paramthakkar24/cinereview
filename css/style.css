@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
 /* =============================================================================
    CineReview — stylesheet
    -----------------------------------------------------------------------------
@@ -3843,9 +3845,9 @@ button.chip { cursor: pointer; }
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.6);
 
-  /* Modern sans everywhere (uses Inter if present, else a clean system stack) */
-  --font: "Inter", "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --display: "Inter", "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Professional type: Outfit for headings/brand, clean sans for body. */
+  --font: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Tighter, more modern shape language */
   --r-sm: 5px;
@@ -3873,8 +3875,34 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
   border-bottom: 1px solid var(--line);
 }
 .header.is-stuck { background: color-mix(in srgb, var(--bg) 92%, transparent); box-shadow: var(--shadow-sm); }
-.brand__name { font-family: var(--display); font-weight: 800; letter-spacing: -0.01em; }
-.brand__tag { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.6rem; }
+/* Professional brand lockup -------------------------------------------------- */
+.brand { gap: 0.7rem; }
+.brand__mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, var(--accent-2) 0%, var(--accent) 55%, #4a3dcf 100%);
+  box-shadow: 0 6px 18px rgba(109, 94, 252, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.brand__mark svg { width: 23px; height: 23px; }
+.brand__name {
+  font-family: var(--display);
+  font-size: 1.32rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  background: linear-gradient(92deg, #ffffff 0%, #cbbcff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.brand__tag {
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-size: 0.58rem;
+  color: var(--text-2);
+}
 .nav__link {
   font-size: var(--fs-xs);
   font-weight: 700;
