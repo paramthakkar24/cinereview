@@ -4273,11 +4273,13 @@ body[data-page="home"] .header.is-stuck {
 .band-navy .btn--ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .band-navy .btn--ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; color: #fff; }
 
-/* No gap before the footer — the last section flows straight into it (and a
-   navy CTA band merges seamlessly with the navy footer). */
-main > .section:last-child,
-main > section:last-child { padding-bottom: 0; }
+/* No gap before the footer. The navy CTA band keeps its (navy) bottom padding
+   so inner margins can't collapse out and reveal the light page background;
+   because the band and the footer are both navy, they merge into one block.
+   A light last section (no band) gets its bottom padding trimmed instead. */
 footer { margin-top: 0; }
+main > .section.band-navy:last-child { padding-bottom: clamp(2.25rem, 1.6rem + 1.8vw, 3rem); }
+main > .section:last-child:not(.band-navy) { padding-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem); }
 
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
