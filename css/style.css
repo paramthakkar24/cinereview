@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 /* =============================================================================
    CineReview — stylesheet
@@ -3814,16 +3814,16 @@ button.chip { cursor: pointer; }
   --surface-2: #242d35;
   --surface-3: #2d3842;
 
-  /* Primary — electric violet / indigo */
-  --accent: #6d5efc;
-  --accent-2: #8b7dff;
-  --accent-soft: rgba(109, 94, 252, 0.15);
-  --accent-line: rgba(109, 94, 252, 0.45);
+  /* Primary — brand blue (matches the adxenex design system), tuned for dark */
+  --accent: #2563eb;
+  --accent-2: #4f8cff;
+  --accent-soft: rgba(37, 99, 235, 0.16);
+  --accent-line: rgba(79, 140, 255, 0.42);
   --on-accent: #ffffff;
 
   /* Secondary accents */
-  --blue: #40bcf4;
-  --blue-soft: rgba(64, 188, 244, 0.14);
+  --blue: #4f8cff;
+  --blue-soft: rgba(79, 140, 255, 0.14);
 
   /* Scores keep a warm amber so they read distinctly from the green UI */
   --gold: #ff9f1c;
@@ -3836,7 +3836,7 @@ button.chip { cursor: pointer; }
   --text-3: #6b7b88;
   --title: #ffffff;
   --nav-link: #b7c3cd;
-  --nav-link-hover: #8b7dff;
+  --nav-link-hover: #4f8cff;
 
   /* Lines & shadows */
   --line: rgba(255, 255, 255, 0.07);
@@ -3845,9 +3845,10 @@ button.chip { cursor: pointer; }
   --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.6);
 
-  /* Professional type: Outfit for headings/brand, clean sans for body. */
-  --font: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --display: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Type system from the adxenex design: Manrope for headings/brand, DM Sans
+     for body — professional and modern. */
+  --font: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Tighter, more modern shape language */
   --r-sm: 5px;
@@ -3881,8 +3882,8 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
   width: 42px;
   height: 42px;
   border-radius: 13px;
-  background: linear-gradient(145deg, var(--accent-2) 0%, var(--accent) 55%, #4a3dcf 100%);
-  box-shadow: 0 6px 18px rgba(109, 94, 252, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  background: linear-gradient(145deg, var(--accent-2) 0%, var(--accent) 55%, #1e40af 100%);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 .brand__mark svg { width: 23px; height: 23px; }
 .brand__name {
@@ -3890,7 +3891,7 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
   font-size: 1.32rem;
   font-weight: 800;
   letter-spacing: -0.015em;
-  background: linear-gradient(92deg, #ffffff 0%, #cbbcff 100%);
+  background: linear-gradient(92deg, #ffffff 0%, #bcd4ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -4011,10 +4012,35 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .footer { background: var(--bg-2); border-top: 1px solid var(--line); }
 
 /* Watchlist CTA + page ---------------------------------------------------- */
-.watch-cta { display: flex; align-items: center; gap: 0.8rem; padding-top: 1.25rem; flex-wrap: wrap; }
+.watch-cta { display: flex; align-items: center; gap: 0.9rem; padding-top: 1.25rem; flex-wrap: wrap; }
 .watch-cta__hint { font-size: var(--fs-sm); color: var(--text-3); }
+.watch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.watch-btn:hover { border-color: var(--accent-line); background: var(--surface-2); transform: translateY(-1px); }
+.watch-heart { color: var(--text-2); transition: color var(--t-fast), transform var(--t-fast); }
+.watch-btn:hover .watch-heart { color: #ff4d6d; }
+.watch-btn.is-saved { border-color: rgba(255, 77, 109, 0.5); background: rgba(255, 77, 109, 0.1); color: #ffd5dd; }
+.watch-btn.is-saved .watch-heart { color: #ff4d6d; }
+.watch-btn:active .watch-heart { transform: scale(1.25); }
 .wl-remove { margin-top: 0.6rem; }
 .wl-empty { display: grid; gap: 1rem; justify-items: center; text-align: center; padding: 2.5rem 0; }
+
+/* Account dropdown — tidy spacing so the menu fits cleanly ----------------- */
+.account__dropdown { min-width: 212px; display: flex; flex-direction: column; gap: 0.4rem; }
+.account__item { display: block; width: 100%; text-align: left; text-decoration: none; }
+.account__hello { margin-bottom: 0.2rem; }
 
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
