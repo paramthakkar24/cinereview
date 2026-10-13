@@ -4046,6 +4046,10 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 
 /* Account dropdown — tidy spacing so the menu fits cleanly ----------------- */
 .account__dropdown { min-width: 212px; display: flex; flex-direction: column; gap: 0.4rem; }
+/* CRITICAL: `display:flex` above would otherwise beat the UA `[hidden]` rule
+   (equal specificity, later source order), keeping the menu permanently open.
+   This restores the hidden attribute so JS open/close actually works. */
+.account__dropdown[hidden] { display: none; }
 .account__item { display: block; width: 100%; text-align: left; text-decoration: none; }
 .account__hello { margin-bottom: 0.2rem; }
 
