@@ -4261,6 +4261,28 @@ body[data-page="home"] .header.is-stuck {
   box-shadow: 0 6px 22px rgba(16, 29, 65, 0.08);
 }
 
+/* Scroll-reactive header: light text/chrome whenever a dark section (hero or a
+   navy section) sits behind it — set by JS as `header--on-dark`. */
+.header--on-dark .nav__link { color: rgba(255, 255, 255, 0.86); }
+.header--on-dark .nav__link:hover,
+.header--on-dark .nav__link[aria-current="page"] { color: #fff; }
+.header--on-dark .brand__name { background: none; color: #fff; -webkit-text-fill-color: #fff; }
+.header--on-dark .brand__tag { color: rgba(255, 255, 255, 0.7); }
+.header--on-dark .icon-btn { color: #fff; background: rgba(255, 255, 255, 0.10); border: 1px solid rgba(255, 255, 255, 0.30); }
+.header--on-dark .account__btn { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.35); color: #fff; }
+.header--on-dark .account__name { color: #fff; }
+.header--on-dark .account__login { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.5); color: #fff; }
+
+/* Once scrolled so a navy section is behind the header, make the bar solid navy
+   (beats the white is-stuck rules, including the home-specific one). */
+body[data-page] .header--on-dark.is-stuck {
+  background: var(--navy);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.22);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
 /* =============================================================================
    34. NAVY FEATURE SECTIONS — the navy / white / blue mixture from adxenex
 ============================================================================= */

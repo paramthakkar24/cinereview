@@ -974,9 +974,23 @@
     const header = $("[data-header], .header");
     if (!header) return;
 
+    /* Dark-backgrounded blocks: the hero image and any navy section. When one
+       of these sits behind the header, the header goes light-on-dark (and navy
+       once scrolled), so its text stays readable against the section behind it. */
+    const darkSel = ".hero, .section--navy, .band-navy";
+
     let ticking = false;
     const update = () => {
       header.classList.toggle("is-stuck", window.scrollY > 8);
+
+      const probe = header.offsetHeight * 0.5 + 2; // a point inside the header band
+      let onDark = false;
+      const blocks = document.querySelectorAll(darkSel);
+      for (let i = 0; i < blocks.length; i++) {
+        const r = blocks[i].getBoundingClientRect();
+        if (r.top <= probe && r.bottom > probe) { onDark = true; break; }
+      }
+      header.classList.toggle("header--on-dark", onDark);
       ticking = false;
     };
     window.addEventListener(
@@ -989,6 +1003,7 @@
       },
       { passive: true }
     );
+    window.addEventListener("resize", update, { passive: true });
     update();
   }
 
