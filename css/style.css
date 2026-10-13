@@ -4158,7 +4158,7 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .card--rank .card__media { border-radius: 0; }
 
 /* Dark navy footer with uppercase Manrope headers. ------------------------- */
-.footer { background: var(--navy); color: #aebbd8; border-top: 0; padding: 4rem 0 1.75rem; }
+.footer { background: var(--navy); color: #aebbd8; border-top: 0; padding: 2.75rem 0 1.75rem; }
 .footer__title { color: #fff; text-transform: uppercase; letter-spacing: 0.09em; font-size: 0.78rem; font-family: var(--display); font-weight: 700; }
 .footer__links a, .footer__blurb { color: #aebbd8; }
 .footer__links a:hover { color: #fff; }
@@ -4261,6 +4261,7 @@ body[data-page="home"] .header.is-stuck {
 .band-navy {
   background: linear-gradient(162deg, var(--navy-2) 0%, var(--navy) 100%);
   color: #e9eefb;
+  padding-block: clamp(2.5rem, 1.8rem + 2vw, 3.5rem);
 }
 .band-navy .section__kicker { color: #9fc0ff; }
 .band-navy .section__title,
