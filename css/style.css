@@ -2070,6 +2070,28 @@ img.is-image-missing {
   text-align: center;
 }
 
+/* Cast members link out to a Google search (photo + profile) in a new tab. */
+.cast__link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--r);
+  padding: 0.35rem;
+  transition: transform var(--t-fast), background var(--t-fast);
+}
+.cast__link:hover,
+.cast__link:focus-visible {
+  background: var(--surface-2);
+  transform: translateY(-2px);
+}
+.cast__link:hover .cast__photo,
+.cast__link:focus-visible .cast__photo {
+  border-color: var(--accent-line);
+}
+.cast__link:hover .cast__name {
+  color: var(--gold-2);
+}
+
 .cast__photo {
   display: grid;
   place-items: center;
@@ -3526,4 +3548,434 @@ kbd {
     break-inside: avoid;
     border-color: #ccc;
   }
+}
+
+/* -----------------------------------------------------------------------------
+   30. ACCOUNTS, AUTH PAGES, USER RATINGS & COMMENTS  (upgrade: phases 1-4)
+----------------------------------------------------------------------------- */
+
+/* Header account control ---------------------------------------------------- */
+.account {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.account__pending {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 2px solid var(--line-2);
+  border-top-color: var(--accent);
+  animation: account-spin 0.7s linear infinite;
+}
+@keyframes account-spin { to { transform: rotate(360deg); } }
+
+.account__menu { position: relative; }
+.account__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.65rem 0.3rem 0.35rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.account__btn:hover { border-color: var(--accent-line); background: var(--surface-2); }
+.account__avatar {
+  display: inline-grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.account__name { max-width: 10rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.account__dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  min-width: 200px;
+  padding: 0.75rem;
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  z-index: 60;
+}
+.account__hello { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: 0.6rem; }
+.account__hello strong { color: var(--text); }
+.account__item {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.account__item:hover { border-color: var(--accent-line); background: var(--surface-3); }
+
+@media (max-width: 640px) {
+  .account__name { display: none; }
+}
+
+/* Auth pages ---------------------------------------------------------------- */
+.auth { max-width: var(--wrap-narrow); }
+.auth-card {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+}
+.auth-card__title { font-family: var(--display); font-size: var(--fs-xl); color: var(--title); margin: 0.6rem 0 0.35rem; }
+.auth-card__lead { color: var(--text-2); margin-bottom: 1.4rem; }
+.auth-form { display: grid; gap: 1rem; }
+.auth-field { display: grid; gap: 0.35rem; }
+.auth-label { font-size: var(--fs-sm); font-weight: 700; color: var(--text); }
+.auth-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  color: var(--text);
+  font-size: var(--fs-base);
+  transition: border-color var(--t-fast);
+}
+.auth-input:focus { outline: none; border-color: var(--accent-line); }
+.auth-hint { font-size: var(--fs-xs); color: var(--text-3); }
+.auth-submit { width: 100%; justify-content: center; margin-top: 0.25rem; }
+.auth-google { width: 100%; justify-content: center; }
+.auth-sep {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.auth-sep::before, .auth-sep::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.auth-alt { margin-top: 1.3rem; text-align: center; color: var(--text-2); font-size: var(--fs-sm); }
+.auth-alt a { color: var(--gold-2); font-weight: 700; }
+.auth-msg {
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--r);
+  font-size: var(--fs-sm);
+  margin-bottom: 1.1rem;
+  border: 1px solid transparent;
+}
+.auth-msg--error { background: var(--accent-soft); border-color: var(--accent-line); color: #ffd9dc; }
+.auth-msg--info { background: var(--surface-2); border-color: var(--line-2); color: var(--text-2); }
+
+/* User ratings & comments zone --------------------------------------------- */
+.uzone {
+  border-top: 1px solid var(--line);
+  padding: var(--section-y) 0;
+  background: var(--bg-2);
+}
+.uzone__title { font-family: var(--display); font-size: var(--fs-xl); color: var(--title); margin-bottom: 1.5rem; }
+.uzone__subtitle {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: var(--fs-lg); color: var(--title); margin: 2rem 0 1rem;
+}
+.uzone__badge {
+  display: inline-grid; place-items: center;
+  min-width: 1.6rem; height: 1.6rem; padding: 0 0.4rem;
+  border-radius: var(--r-pill); background: var(--surface-3);
+  color: var(--text-2); font-size: var(--fs-xs); font-weight: 700;
+}
+.uzone__score {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+@media (min-width: 720px) { .uzone__score { grid-template-columns: minmax(0, 320px) 1fr; align-items: center; } }
+
+.uscore { display: flex; align-items: center; gap: 1rem; }
+.uscore__badge {
+  display: inline-flex; align-items: baseline; gap: 0.1rem;
+  padding: 0.6rem 0.9rem; border-radius: var(--r);
+  background: var(--gold-soft); border: 1px solid rgba(245, 181, 46, 0.3);
+}
+.uscore__num { font-family: var(--display); font-size: 2rem; font-weight: 700; color: var(--gold-2); line-height: 1; }
+.uscore__max { font-size: var(--fs-sm); color: var(--gold); }
+.uscore__meta { display: grid; gap: 0.15rem; }
+.uscore__label { font-weight: 700; color: var(--text); }
+.uscore__count { font-size: var(--fs-sm); color: var(--text-2); }
+.uscore__hint { font-size: var(--fs-xs); color: var(--text-3); }
+
+.urate__head { font-size: var(--fs-sm); color: var(--text-2); margin-bottom: 0.5rem; }
+.urate__head strong { color: var(--gold-2); }
+.urate__dots { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.urate__dot {
+  width: 2.2rem; height: 2.2rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line-2);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-weight: 700; font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.urate__dot:hover:not(:disabled) { border-color: var(--gold); color: var(--gold-2); }
+.urate__dot.is-on { background: var(--gold); border-color: var(--gold); color: #1a1205; }
+.urate__dot:disabled { cursor: not-allowed; opacity: 0.55; }
+.urate__foot { margin-top: 0.75rem; }
+.urate__gate { font-size: var(--fs-sm); color: var(--text-2); }
+.urate__gate a { color: var(--gold-2); font-weight: 700; }
+
+.ucomment-form { margin-bottom: 1.5rem; }
+.ucomment-form__input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  color: var(--text);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  resize: vertical;
+}
+.ucomment-form__input:focus { outline: none; border-color: var(--accent-line); }
+.ucomment-form__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 0.6rem; }
+.ucomment-form__count { font-size: var(--fs-xs); color: var(--text-3); font-variant-numeric: tabular-nums; }
+.ucomment-form__msg { margin-top: 0.6rem; font-size: var(--fs-sm); color: #ffd9dc; }
+
+.ucomment-list { list-style: none; display: grid; gap: 1rem; }
+.ucomment {
+  position: relative;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+}
+.ucomment__head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.4rem; }
+.ucomment__who { font-weight: 700; color: var(--text); }
+.ucomment__when { font-size: var(--fs-xs); color: var(--text-3); }
+.ucomment__body { color: var(--text-2); white-space: pre-wrap; word-wrap: break-word; }
+.ucomment__del {
+  margin-top: 0.6rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.ucomment__del:hover { border-color: var(--accent-line); color: var(--accent-2); }
+
+/* Language chip buttons (reuse .chip) --------------------------------------- */
+button.chip { cursor: pointer; }
+.chip.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* =============================================================================
+   31. BOLD REDESIGN — Letterboxd-inspired theme  (upgrade)
+   -----------------------------------------------------------------------------
+   An override layer, keyed to the existing class names so no markup changes.
+   Re-themes every design token (the whole site re-colours at once), then adds
+   a focused set of component overrides for a cleaner, poster-forward, modern
+   feel. Dark, cool palette; green primary; blue/amber secondary.
+============================================================================= */
+:root {
+  /* Surfaces — cool charcoal, Letterboxd-like */
+  --bg: #14181c;
+  --bg-2: #181d22;
+  --surface: #1c232a;
+  --surface-2: #242d35;
+  --surface-3: #2d3842;
+
+  /* Primary — electric violet / indigo */
+  --accent: #6d5efc;
+  --accent-2: #8b7dff;
+  --accent-soft: rgba(109, 94, 252, 0.15);
+  --accent-line: rgba(109, 94, 252, 0.45);
+  --on-accent: #ffffff;
+
+  /* Secondary accents */
+  --blue: #40bcf4;
+  --blue-soft: rgba(64, 188, 244, 0.14);
+
+  /* Scores keep a warm amber so they read distinctly from the green UI */
+  --gold: #ff9f1c;
+  --gold-2: #ffbf5a;
+  --gold-soft: rgba(255, 159, 28, 0.15);
+
+  /* Text */
+  --text: #dfe4ea;
+  --text-2: #9fb0bd;
+  --text-3: #6b7b88;
+  --title: #ffffff;
+  --nav-link: #b7c3cd;
+  --nav-link-hover: #8b7dff;
+
+  /* Lines & shadows */
+  --line: rgba(255, 255, 255, 0.07);
+  --line-2: rgba(255, 255, 255, 0.13);
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.6);
+
+  /* Modern sans everywhere (uses Inter if present, else a clean system stack) */
+  --font: "Inter", "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --display: "Inter", "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Tighter, more modern shape language */
+  --r-sm: 5px;
+  --r: 9px;
+  --r-lg: 16px;
+  --header-h: 66px;
+  --card-min: 160px;
+}
+
+body { letter-spacing: 0.005em; }
+
+/* Headings: bold, tight, modern ------------------------------------------- */
+h1, h2, h3, .hero__title, .section__title, .page-head__title,
+.detail__title, .auth-card__title, .uzone__title {
+  font-family: var(--display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Header: translucent, blurred, minimal ----------------------------------- */
+.header {
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.header.is-stuck { background: color-mix(in srgb, var(--bg) 92%, transparent); box-shadow: var(--shadow-sm); }
+.brand__name { font-family: var(--display); font-weight: 800; letter-spacing: -0.01em; }
+.brand__tag { letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.6rem; }
+.nav__link {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Buttons: pill, confident ------------------------------------------------ */
+.btn {
+  border-radius: var(--r-pill);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: transform var(--t-fast), background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--primary { background: var(--accent); color: var(--on-accent); }
+.btn--primary:hover { background: var(--accent-2); }
+.btn--ghost { border: 1px solid var(--line-2); background: transparent; }
+.btn--ghost:hover { border-color: var(--accent-line); background: var(--surface-2); color: var(--text); }
+
+/* Hero: taller, cinematic ------------------------------------------------- */
+.hero__title { font-size: clamp(2.5rem, 1.4rem + 5vw, 5rem); line-height: 0.98; }
+.hero__eyebrow span { color: var(--accent-2); }
+
+/* Section headers --------------------------------------------------------- */
+.section__kicker { color: var(--accent-2); letter-spacing: 0.16em; }
+.section__link { color: var(--blue); }
+.section__link:hover { color: var(--accent-2); }
+
+/* Movie cards: poster-forward, hover-zoom, green edge --------------------- */
+.grid { gap: clamp(0.9rem, 0.6rem + 1vw, 1.5rem); }
+.grid--rail { --card-min: 178px; }
+.grid--wide { --card-min: 230px; }
+/* Smaller, tidier cards in the horizontal rails (home + related). */
+.rail__track { grid-auto-columns: minmax(168px, 1fr); }
+/* Belt-and-braces: never let the details page push the layout wider than the
+   viewport, whatever a nested rail's intrinsic width is. */
+.detail { overflow-x: clip; }
+/* Full-width cast + related, below the two-column area. */
+.detail__full { margin-top: clamp(1.5rem, 1rem + 2vw, 3rem); }
+.detail__full .cast { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+.card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.card:hover { transform: none; box-shadow: none; }
+.card__media {
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+  transition: border-color var(--t), box-shadow var(--t), transform var(--t);
+}
+.card:hover .card__media {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+.card__poster { transition: transform var(--t-slow); }
+.card:hover .card__poster { transform: scale(1.06); }
+.card__body { padding: 0.75rem 0.15rem 0.25rem; }
+.card__title { font-weight: 700; letter-spacing: -0.01em; }
+.card__title a { color: var(--title); }
+.card__title a:hover { color: var(--accent-2); }
+.card__blurb { color: var(--text-2); }
+.card__flag--new { background: var(--accent); color: var(--on-accent); }
+
+/* Rating pill → crisp score chip ------------------------------------------ */
+.rating-pill {
+  background: var(--surface-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-pill);
+  padding: 0.25rem 0.6rem;
+  color: var(--gold-2);
+  font-weight: 800;
+}
+
+/* Chips: pill, quiet until active ----------------------------------------- */
+.chip { border-radius: var(--r-pill); }
+.filter-group .chip.is-active,
+.chip.is-active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* User rating dots → green when set --------------------------------------- */
+.urate__dot.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.urate__dot:hover:not(:disabled) { border-color: var(--accent); color: var(--accent-2); }
+
+/* Account + auth accents -------------------------------------------------- */
+.account__avatar { background: var(--accent); color: var(--on-accent); }
+.auth-alt a, .urate__gate a { color: var(--accent-2); }
+
+/* Links in prose ---------------------------------------------------------- */
+.prose a, .detail__section a { color: var(--blue); }
+.prose a:hover, .detail__section a:hover { color: var(--accent-2); }
+
+/* Footer: deep, quiet ----------------------------------------------------- */
+.footer { background: var(--bg-2); border-top: 1px solid var(--line); }
+
+/* Respect reduced-motion for all the new hover transforms ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, .card:hover .card__media, .card:hover .card__poster,
+  .cast__link:hover, .cast__link:focus-visible { transform: none; }
 }

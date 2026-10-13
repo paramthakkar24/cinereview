@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign up — CineReview</title>
+<meta name="description" content="Create a CineReview account to rate films and leave comments.">
+<meta name="theme-color" content="#08080b">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='19'>🎬</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<!-- Google Analytics 4 (gtag.js) — loaded once per page, see js/analytics.js -->
+<script src="js/analytics.js"></script>
+</head>
+<body data-page="account">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="CineReview home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">CineReview</span>
+        <span class="brand__tag">Movie Reviews</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="main-nav" data-nav aria-label="Main">
+      <a class="nav__link" data-nav-link="home" href="index.html">Home</a>
+      <a class="nav__link" data-nav-link="movies" href="movies.html">Movies</a>
+      <a class="nav__link" data-nav-link="reviews" href="reviews.html">Reviews</a>
+      <a class="nav__link" data-nav-link="about" href="about.html">About</a>
+    </nav>
+
+    <div class="header__tools">
+      <div class="account" data-account aria-live="polite"></div>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap auth">
+      <div class="auth-card" data-auth-card>
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span aria-hidden="true">/</span><span>Sign up</span>
+        </nav>
+        <h1 class="auth-card__title">Create your account</h1>
+        <p class="auth-card__lead">Join CineReview to rate films out of ten and leave comments.</p>
+
+        <div class="auth-msg" data-auth-msg hidden></div>
+
+        <form class="auth-form" data-signup-form novalidate>
+          <div class="auth-field">
+            <label class="auth-label" for="signup-name">Display name</label>
+            <input class="auth-input" id="signup-name" type="text" name="name" autocomplete="nickname" maxlength="40" required>
+            <span class="auth-hint">Shown next to your ratings and comments.</span>
+          </div>
+          <div class="auth-field">
+            <label class="auth-label" for="signup-email">Email</label>
+            <input class="auth-input" id="signup-email" type="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="auth-field">
+            <label class="auth-label" for="signup-password">Password</label>
+            <input class="auth-input" id="signup-password" type="password" name="password" autocomplete="new-password" minlength="6" required>
+            <span class="auth-hint">At least 6 characters.</span>
+          </div>
+          <button class="btn btn--primary auth-submit" type="submit">Create account</button>
+        </form>
+
+        <div class="auth-sep"><span>or</span></div>
+
+        <button class="btn btn--ghost auth-google" type="button" data-google>
+          Continue with Google
+        </button>
+
+        <p class="auth-alt">Already have an account? <a href="login.html">Log in</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__bottom">
+    <span>&copy; <span id="year">2026</span> CineReview. A demonstration project — all reviews are original editorial content.</span>
+    <p class="footer__note">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/api.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/script.js"></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".brand__mark").forEach(function (m) {
+    m.innerHTML = window.CR.icons.clapper;
+  });
+
+  (function () {
+    var card = document.querySelector("[data-auth-card]");
+    var form = document.querySelector("[data-signup-form]");
+    var msg = document.querySelector("[data-auth-msg]");
+    var google = document.querySelector("[data-google]");
+
+    function show(text, kind) {
+      msg.hidden = false;
+      msg.className = "auth-msg auth-msg--" + (kind || "error");
+      msg.textContent = text;
+    }
+
+    if (window.CR && window.CR.auth && !window.CR.auth.isConfigured()) {
+      show("Accounts are not switched on yet. Add your Supabase URL and anon key to js/config.js (Phase 0).", "info");
+      form.querySelector(".auth-submit").disabled = true;
+      google.disabled = true;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      msg.hidden = true;
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var password = form.password.value;
+      if (!name) { show("Please choose a display name."); return; }
+      if (!email || password.length < 6) { show("Enter an email and a password of at least 6 characters."); return; }
+      var btn = form.querySelector(".auth-submit");
+      btn.disabled = true; btn.textContent = "Creating…";
+      window.CR.auth.signUp(email, password, name).then(function (res) {
+        btn.disabled = false; btn.textContent = "Create account";
+        if (res.error) { show(res.error.message || "Could not create your account."); return; }
+        // If email confirmation is on, there is no active session yet.
+        if (res.data && res.data.session) {
+          window.location.href = "index.html";
+        } else {
+          card.innerHTML =
+            '<h1 class="auth-card__title">Check your inbox</h1>' +
+            '<p class="auth-card__lead">We sent a confirmation link to your email. ' +
+            "Confirm it, then log in.</p>" +
+            '<a class="btn btn--primary" href="login.html">Go to log in</a>';
+        }
+      });
+    });
+
+    google.addEventListener("click", function () {
+      msg.hidden = true;
+      window.CR.auth.signInWithGoogle().then(function (res) {
+        if (res && res.error) show(res.error.message || "Google sign-in is unavailable.");
+      });
+    });
+
+    if (window.CR && window.CR.auth) {
+      window.CR.auth.onChange(function (state) {
+        if (state.user) {
+          var safe = (window.CR.app && window.CR.app.esc) ? window.CR.app.esc(window.CR.auth.displayName()) : "";
+          card.innerHTML =
+            '<h1 class="auth-card__title">You’re all set</h1>' +
+            '<p class="auth-card__lead">Signed in as <strong>' + safe + "</strong>.</p>" +
+            '<a class="btn btn--primary" href="index.html">Go to the site</a>';
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

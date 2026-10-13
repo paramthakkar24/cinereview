@@ -1,5 +1,8 @@
-# Local config — holds your TMDB API key, never committed
-js/config.js
+# config.js carries only client-safe values (TMDB v3 key, which is a client-side
+# key by design, and the Supabase anon/public key). Real secrets — the Supabase
+# service_role key and DB password — are never placed here. It is committed so
+# the deployed Vercel site is configured. To keep the TMDB key private instead,
+# blank `apiKey` here and set a TMDB_API_KEY env var on Vercel (api/tmdb.js uses it).
 
 # OS noise
 .DS_Store

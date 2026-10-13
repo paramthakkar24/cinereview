@@ -1681,6 +1681,10 @@
             .map(
               (person) =>
                 '<li class="cast__item">' +
+                  '<a class="cast__link" href="https://www.google.com/search?q=' +
+                    encodeURIComponent(person.name + " actor") +
+                    '" target="_blank" rel="noopener noreferrer" title="Search ' +
+                    esc(person.name) + ' on Google — opens in a new tab">' +
                   (person.profile
                     ? /* A TMDB profile URL can 404: the person left the public
                          database, or the path was reissued. The initials circle
@@ -1706,6 +1710,7 @@
                   (person.character
                     ? '<p class="cast__role">' + esc(person.character) + "</p>"
                     : "") +
+                  "</a>" +
                 "</li>"
             )
             .join("") +
@@ -1878,9 +1883,14 @@
 
           (review ? detailReviewBlock(review) : unreviewed) +
           (movie.pros.length || movie.cons.length ? detailProsCons(movie) : "") +
-          detailCast(movie) +
-          detailRelated(movie) +
         "</div>" +
+      "</div>" +
+
+      /* Cast and related span the full width below the two-column area, so they
+         use the whole page instead of being trapped in the narrow text column. */
+      '<div class="detail__full">' +
+        detailCast(movie) +
+        detailRelated(movie) +
       "</div>"
     );
   }
@@ -1960,6 +1970,36 @@
 
     /* Our own film: paint from the bundled record straight away. */
     if (target.bundled) renderDetail(target.bundled);
+
+    /* A bundled film with no editorial TMDB id still deserves real cast
+       headshots. Find it on TMDB by title (preferring a year match), then merge
+       only the live cast into our record. We keep the record "local" so our own
+       review, score and pros/cons are preserved — just with photographed cast. */
+    if (target.bundled && !target.tmdbId && api && api.ready()) {
+      try {
+        const found = await api.searchMovies(target.bundled.title, 1);
+        if (!document.body.contains(slot)) return;
+        const yr = target.bundled.year;
+        const hit =
+          (yr && found.movies.find((m) => m.year === yr)) || found.movies[0];
+        if (hit && hit.tmdbId) {
+          const detail = await api.getMovieDetail(hit.tmdbId);
+          if (!document.body.contains(slot)) return;
+          if (detail.cast && detail.cast.length) {
+            const merged = Object.assign({}, target.bundled, {
+              cast: detail.cast,
+              runtime: target.bundled.runtime || detail.runtime,
+              rated: target.bundled.rated || detail.rated
+            });
+            enrichDetail(merged);
+          }
+        }
+      } catch (err) {
+        if (err && err.kind === "ABORT") return;
+        /* No match or a failed lookup: the bundled page stays as it is. */
+      }
+      return;
+    }
 
     const live = Boolean(api && api.ready() && target.tmdbId);
 

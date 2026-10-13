@@ -82,6 +82,7 @@
       if (key) window.localStorage.setItem(storageKey(), key);
       else window.localStorage.removeItem(storageKey());
       cache.clear();
+      clearStore();
       return true;
     } catch (_) {
       return false;
@@ -97,15 +98,59 @@
     return settings().bearer || "";
   }
 
-  /** True when there is something to sign requests with. */
+  /** True when there is something to sign requests with — or a proxy that will. */
   function ready() {
-    return Boolean(key() || bearer());
+    return Boolean(key() || bearer() || settings().apiProxy);
   }
 
   /* -------------------------------------------------------------------------
      Low-level request
   ------------------------------------------------------------------------- */
   const cache = new Map();
+
+  /* Persistent response cache (sessionStorage), so navigating away and back to a
+     page reuses TMDB data within its TTL instead of re-fetching it every time.
+     Survives page navigations in the same tab; cleared when the tab closes.
+     Every access is guarded: sessionStorage throws in private mode / when full. */
+  const SS_PREFIX = "cr.api.";
+
+  function ssGet(ck) {
+    try {
+      const raw = window.sessionStorage.getItem(SS_PREFIX + ck);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (obj && obj.expires > Date.now()) return obj.value;
+      window.sessionStorage.removeItem(SS_PREFIX + ck);
+      return null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function ssSet(ck, value, expires) {
+    try {
+      window.sessionStorage.setItem(SS_PREFIX + ck, JSON.stringify({ value: value, expires: expires }));
+    } catch (_) {
+      /* Quota exceeded or storage disabled: the in-memory cache still works, so
+         drop older entries and move on rather than failing the request. */
+      try {
+        for (let i = window.sessionStorage.length - 1; i >= 0; i--) {
+          const k = window.sessionStorage.key(i);
+          if (k && k.indexOf(SS_PREFIX) === 0) window.sessionStorage.removeItem(k);
+        }
+      } catch (_) {}
+    }
+  }
+
+  /** Drop every persisted response (used when the API key changes). */
+  function clearStore() {
+    try {
+      for (let i = window.sessionStorage.length - 1; i >= 0; i--) {
+        const k = window.sessionStorage.key(i);
+        if (k && k.indexOf(SS_PREFIX) === 0) window.sessionStorage.removeItem(k);
+      }
+    } catch (_) {}
+  }
 
   function cacheKey(path, params) {
     const stable = Object.keys(params || {})
@@ -127,7 +172,18 @@
       );
     }
 
-    const url = new URL(BASE + path);
+    /* When a proxy is configured, requests go to it instead of straight to
+       api.themoviedb.org — the proxy relays them server-side, which works on
+       networks that block TMDB directly. The TMDB path travels as ?path=…; the
+       proxy adds (or overrides) the key. */
+    const proxyBase = cfg.apiProxy || "";
+    let url;
+    if (proxyBase) {
+      url = new URL(proxyBase, window.location.origin);
+      url.searchParams.set("path", path);
+    } else {
+      url = new URL(BASE + path);
+    }
     url.searchParams.set("language", cfg.language || "en-US");
     if (cfg.region) url.searchParams.set("region", cfg.region);
     url.searchParams.set("include_adult", "false");
@@ -135,9 +191,11 @@
 
     const headers = { accept: "application/json" };
     const token = bearer();
-    if (token) {
+    if (token && !proxyBase) {
+      /* Bearer auth is only used for a direct call; through the proxy the key
+         is carried as a query param (or supplied by the proxy's own env var). */
       headers.Authorization = "Bearer " + token;
-    } else {
+    } else if (key()) {
       url.searchParams.set("api_key", key());
     }
 
@@ -150,6 +208,13 @@
     if (cacheable) {
       const hit = cache.get(ck);
       if (hit && hit.expires > Date.now()) return hit.value;
+      /* Not in memory this page load? Reuse a still-fresh response from a
+         previous page in this tab, so going back to Home is instant. */
+      const stored = ssGet(ck);
+      if (stored) {
+        cache.set(ck, { value: stored, expires: Date.now() + (opts.ttl || TTL.list) });
+        return stored;
+      }
     }
 
     // One controller merges the caller's abort with our timeout, so a page that
@@ -217,7 +282,11 @@
     }
 
     const data = await response.json();
-    if (cacheable) cache.set(ck, { value: data, expires: Date.now() + (opts.ttl || TTL.list) });
+    if (cacheable) {
+      const expires = Date.now() + (opts.ttl || TTL.list);
+      cache.set(ck, { value: data, expires: expires });
+      ssSet(ck, data, expires);
+    }
     return data;
   }
 
@@ -353,6 +422,12 @@
     return { movies: data.results.map(normalise), page: data.page, totalPages: data.total_pages, total: data.total_results };
   }
 
+  /** Films TMDB lists as not yet released in the configured region. */
+  async function getUpcoming(page, options) {
+    const data = await request("/movie/upcoming", { page: page || 1 }, options);
+    return { movies: data.results.map(normalise), page: data.page, totalPages: data.total_pages, total: data.total_results };
+  }
+
   async function searchMovies(query, page, options) {
     const data = await request(
       "/search/movie",
@@ -381,13 +456,19 @@
       {
         page: page || 1,
         with_genres: f.genre || undefined,
+        // TMDB's original-language code (ISO 639-1), e.g. "hi" for Hindi,
+        // "en" for English. This is the film's original language, which is not
+        // always the same as any available dubbed audio track.
+        with_original_language: f.language || undefined,
         primary_release_year: f.year || undefined,
         "with_release_date.gte": f.yearFrom || undefined,
         "with_release_date.lte": f.yearTo || undefined,
         sort_by: f.sort || "popularity.desc",
         "vote_average.gte": f.voteMin || undefined,
         "vote_average.lte": f.voteMax || undefined,
-        "vote_count.gte": f.minVotes || MIN_VOTES,
+        // A language-filtered browse of a smaller industry needs a lower floor,
+        // or the first page comes back empty. The caller can still override it.
+        "vote_count.gte": f.minVotes || (f.language ? 50 : MIN_VOTES),
         with_runtime: f.runtime || undefined
       },
       options
@@ -457,6 +538,7 @@
     request: request,
     clearCache: function () {
       cache.clear();
+      clearStore();
     },
     cacheSize: function () {
       return cache.size;
@@ -474,6 +556,7 @@
     getPopular: getPopular,
     getTopRated: getTopRated,
     getNowPlaying: getNowPlaying,
+    getUpcoming: getUpcoming,
     searchMovies: searchMovies,
     discoverMovies: discoverMovies,
     getGenres: getGenres,

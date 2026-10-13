@@ -33,6 +33,7 @@
     </nav>
 
     <div class="header__tools">
+      <div class="account" data-account aria-live="polite"></div>
       <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -197,6 +198,41 @@
   </section>
 
   <!-- ===================================================================
+       Coming soon — TMDB upcoming
+  ==================================================================== -->
+  <section class="section" aria-labelledby="upcoming-title">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Fresh from TMDB</span>
+          <h2 class="section__title" id="upcoming-title">Coming soon to cinemas</h2>
+          <p class="section__note">Upcoming releases, pulled live from TMDB so the site stays current.</p>
+        </div>
+        <a class="section__link" href="movies.html">Browse movies</a>
+      </div>
+      <div data-discover="upcoming" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Browse by original language
+  ==================================================================== -->
+  <section class="section section--alt" aria-labelledby="lang-title" data-discover="language">
+    <div class="wrap">
+      <div class="section__head" data-reveal>
+        <div>
+          <span class="section__kicker">Around the world</span>
+          <h2 class="section__title" id="lang-title">Browse by original language</h2>
+          <p class="section__note" data-lang-note>Pick a language to explore films in their original tongue.</p>
+        </div>
+        <button class="btn btn--ghost btn--sm" type="button" data-lang-reset>Reset</button>
+      </div>
+      <div class="filter-group" data-lang-chips role="group" aria-label="Original language"></div>
+      <div class="mt-4" data-lang-grid aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
        Closing call to action
   ==================================================================== -->
   <section class="section">
@@ -284,6 +320,9 @@
 <script src="js/reviews.js"></script>
 <script src="js/api.js"></script>
 <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+<script src="js/auth.js" defer></script>
+<script src="js/discover.js" defer></script>
 <script>
   /* Fill in the year, and drop the icons the static markup left empty. */
   document.getElementById("year").textContent = new Date().getFullYear();

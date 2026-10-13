@@ -22,6 +22,21 @@ window.CR.config = {
   region: "US",
   imageBase: "https://image.tmdb.org/t/p",
 
+  /* Route TMDB calls through our own serverless proxy (api/tmdb.js) so they work
+     on networks that block api.themoviedb.org directly. Use "" to call TMDB
+     directly. */
+  apiProxy: "/api/tmdb",
+
+  /* --- Supabase (auth + shared ratings/comments) ---------------------------
+     From your Supabase project → Settings → API:
+       supabaseUrl      the "Project URL" (https://xxxx.supabase.co)
+       supabaseAnonKey  the "anon public" (a.k.a. publishable) key.
+     Both are safe to ship in the browser; data is protected by Row-Level
+     Security. NEVER put the service_role key or DB password here.
+  ------------------------------------------------------------------------- */
+  supabaseUrl: "",
+  supabaseAnonKey: "",
+
   pageSize: 20,
   fallbackPoster: "images/poster-placeholder.svg",
   fallbackBackdrop: "images/backdrop-placeholder.svg",

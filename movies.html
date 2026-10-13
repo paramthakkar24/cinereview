@@ -33,6 +33,7 @@
     </nav>
 
     <div class="header__tools">
+      <div class="account" data-account aria-live="polite"></div>
       <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -157,6 +158,56 @@
     </div>
   </section>
 
+  <!-- ===================================================================
+       New releases (TMDB now playing)
+  ==================================================================== -->
+  <section class="section section--alt" aria-labelledby="disc-np-title">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <span class="section__kicker">In cinemas now</span>
+          <h2 class="section__title" id="disc-np-title">New releases</h2>
+          <p class="section__note">Films playing in theatres now, pulled live from TMDB.</p>
+        </div>
+      </div>
+      <div data-discover="now-playing" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Upcoming movies (TMDB upcoming)
+  ==================================================================== -->
+  <section class="section" aria-labelledby="disc-up-title">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <span class="section__kicker">Not yet released</span>
+          <h2 class="section__title" id="disc-up-title">Upcoming movies</h2>
+          <p class="section__note">Coming soon to cinemas. Release dates and availability come from TMDB.</p>
+        </div>
+      </div>
+      <div data-discover="upcoming" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Browse by original language (Hindi, English, and more)
+  ==================================================================== -->
+  <section class="section section--alt" aria-labelledby="disc-lang-title" data-discover="language">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <span class="section__kicker">Around the world</span>
+          <h2 class="section__title" id="disc-lang-title">Browse by original language</h2>
+          <p class="section__note" data-lang-note></p>
+        </div>
+        <button class="btn btn--ghost btn--sm" type="button" data-lang-reset>Reset</button>
+      </div>
+      <div class="filter-group" data-lang-chips role="group" aria-label="Original language"></div>
+      <div class="mt-4" data-lang-grid aria-live="polite"></div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -228,6 +279,9 @@
 <script src="js/reviews.js"></script>
 <script src="js/api.js"></script>
 <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+<script src="js/auth.js" defer></script>
+<script src="js/discover.js" defer></script>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
   document.querySelectorAll(".brand__mark").forEach(function (m) {
