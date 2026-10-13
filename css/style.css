@@ -3908,12 +3908,15 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
   font-size: 0.58rem;
   color: var(--text-2);
 }
+/* Nav links: clean Title Case like adxenex (not uppercase), medium weight. */
 .nav__link {
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
 }
+.nav__link:hover { color: var(--text); }
+.nav__link[aria-current="page"] { color: var(--title); font-weight: 600; }
 
 /* Buttons: pill, confident ------------------------------------------------ */
 .btn {

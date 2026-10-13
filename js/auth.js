@@ -222,11 +222,7 @@
   var menuControllers = [];
 
   function closeAllMenus() {
-    menuControllers.forEach(function (c) {
-      c.state.pinned = false;
-      c.state.hovering = false;
-      c.apply();
-    });
+    menuControllers.forEach(function (c) { c.close(); });
   }
 
   function wire(slot) {
@@ -239,9 +235,9 @@
     try { hoverMenu = window.matchMedia("(hover: hover) and (pointer: fine)").matches; } catch (e) {}
 
     if (toggle && dropdown && menu) {
-      var state = { hovering: false, pinned: false };
-      var apply = function () {
-        var open = state.hovering || state.pinned;
+      var isOpen = false;
+      var set = function (open) {
+        isOpen = open;
         if (open) {
           dropdown.removeAttribute("hidden");
           toggle.setAttribute("aria-expanded", "true");
@@ -251,20 +247,22 @@
         }
       };
 
+      // Desktop: hover opens it, leaving ALWAYS closes it (never stuck). A CSS
+      // bridge covers the gap so moving from button to menu doesn't close it.
       if (hoverMenu) {
-        menu.addEventListener("mouseenter", function () { state.hovering = true; apply(); });
-        menu.addEventListener("mouseleave", function () { state.hovering = false; apply(); });
+        menu.addEventListener("mouseenter", function () { set(true); });
+        menu.addEventListener("mouseleave", function () { set(false); });
       }
+      // Click / tap toggles (primary interaction on touch).
       toggle.addEventListener("click", function (e) {
         e.stopPropagation();
-        state.pinned = !state.pinned;
-        apply();
+        set(!isOpen);
       });
       // Clicks inside the menu (the links / log out) must not close it early.
       dropdown.addEventListener("click", function (e) { e.stopPropagation(); });
 
-      menuControllers.push({ state: state, apply: apply });
-      apply(); // start closed
+      menuControllers.push({ close: function () { set(false); } });
+      set(false); // start closed
     }
 
     // Bind the outside-click / Escape closers exactly once, not per render.
