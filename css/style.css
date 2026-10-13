@@ -4305,6 +4305,9 @@ body[data-page="home"] .header.is-stuck {
   color: #cdd7ea;
 }
 .section--navy .section__kicker { color: #9fc0ff; }
+.section--navy .section__link { color: #9fc0ff; }
+.section--navy .section__link:hover { color: #fff; }
+.section--navy .section__note { color: #aebbd8; }
 .section--navy .intro__title,
 .section--navy h2,
 .section--navy h3 { color: #fff; }
