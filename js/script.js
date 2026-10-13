@@ -611,8 +611,16 @@
 
   /** Rail contents — the track element is supplied by the page markup. */
   function railCards(records, options) {
+    const opts = options || {};
     return movies(records)
-      .map((m) => card(m, Object.assign({ mini: true, blurb: false }, options || {})))
+      .map((m, i) =>
+        card(
+          m,
+          /* rank:true is a request to number the rail; turn it into the actual
+             position so cards show "No. 1" rather than "No. true". */
+          Object.assign({ mini: true, blurb: false }, opts, opts.rank ? { rank: i + 1 } : {})
+        )
+      )
       .join("");
   }
 
