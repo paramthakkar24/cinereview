@@ -4237,12 +4237,23 @@ body[data-page="home"] .header:not(.is-stuck) .brand__name {
   -webkit-text-fill-color: #fff;
 }
 body[data-page="home"] .header:not(.is-stuck) .brand__tag { color: rgba(255, 255, 255, 0.7); }
-body[data-page="home"] .header:not(.is-stuck) .icon-btn { color: #fff; }
+body[data-page="home"] .header:not(.is-stuck) .icon-btn {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  color: #fff;
+}
 body[data-page="home"] .header:not(.is-stuck) .account__login {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
 }
+/* Logged-in profile pill: translucent white over the dark hero. */
+body[data-page="home"] .header:not(.is-stuck) .account__btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+body[data-page="home"] .header:not(.is-stuck) .account__name { color: #fff; }
 
 body[data-page="home"] .header.is-stuck {
   background: #ffffff;
