@@ -4298,6 +4298,33 @@ body[data-page="home"] .header.is-stuck {
 .band-navy .btn--ghost { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.45); color: #fff; }
 .band-navy .btn--ghost:hover { background: rgba(255, 255, 255, 0.16); border-color: #fff; color: #fff; }
 
+/* Navy CONTENT section (e.g. the home intro) — full navy like adxenex's hero,
+   white headings, light body text, blue icon chips, and an elevated card. */
+.section--navy {
+  background: linear-gradient(170deg, var(--navy-2) 0%, var(--navy) 100%);
+  color: #cdd7ea;
+}
+.section--navy .section__kicker { color: #9fc0ff; }
+.section--navy .intro__title,
+.section--navy h2,
+.section--navy h3 { color: #fff; }
+.section--navy .intro__text,
+.section--navy .intro__text p,
+.section--navy p { color: #aebbd8; }
+.section--navy .intro__item strong { color: #fff; }
+.section--navy .intro__item span { color: #9fb0ce; }
+.section--navy .intro__icon {
+  background: rgba(40, 100, 240, 0.22);
+  border-color: rgba(79, 140, 255, 0.35);
+  color: #9fc0ff;
+}
+/* Scoreboard becomes an elevated lighter-navy panel on the navy section. */
+.section--navy .scoreboard {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+
 /* No gap before the footer. The navy CTA band keeps its (navy) bottom padding
    so inner margins can't collapse out and reveal the light page background;
    because the band and the footer are both navy, they merge into one block.
