@@ -33,8 +33,8 @@
     </nav>
 
     <div class="header__tools">
-      <div class="account" data-account aria-live="polite"></div>
       <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
+      <div class="account" data-account aria-live="polite"></div>
       <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18"/>
@@ -67,6 +67,9 @@
       <p class="muted">Loading movie details…</p>
     </div>
   </div>
+
+  <!-- Add-to-watchlist button, mounted by js/watchlist.js from ?id=. -->
+  <div class="wrap" data-watch-zone></div>
 
   <!-- ===================================================================
        User ratings & comments — mounted by js/user-reviews.js from ?id=.
@@ -148,6 +151,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
 <script src="js/auth.js" defer></script>
 <script src="js/user-reviews.js" defer></script>
+<script src="js/watchlist.js" defer></script>
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
   document.querySelectorAll(".brand__mark").forEach(function (m) {

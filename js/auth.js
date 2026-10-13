@@ -196,6 +196,7 @@
           "</button>" +
           '<div class="account__dropdown" data-account-dropdown hidden>' +
             '<p class="account__hello">Signed in as<br><strong>' + esc(name) + "</strong></p>" +
+            '<a class="account__item" href="watchlist.html">My watchlist</a>' +
             '<button class="account__item" type="button" data-account-signout>Log out</button>' +
           "</div>" +
         "</div>";

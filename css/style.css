@@ -4010,8 +4010,41 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 /* Footer: deep, quiet ----------------------------------------------------- */
 .footer { background: var(--bg-2); border-top: 1px solid var(--line); }
 
+/* Watchlist CTA + page ---------------------------------------------------- */
+.watch-cta { display: flex; align-items: center; gap: 0.8rem; padding-top: 1.25rem; flex-wrap: wrap; }
+.watch-cta__hint { font-size: var(--fs-sm); color: var(--text-3); }
+.wl-remove { margin-top: 0.6rem; }
+.wl-empty { display: grid; gap: 1rem; justify-items: center; text-align: center; padding: 2.5rem 0; }
+
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .card:hover .card__media, .card:hover .card__poster,
   .cast__link:hover, .cast__link:focus-visible { transform: none; }
+}
+
+/* Mobile header: hamburger on the LEFT, brand next, actions on the right,
+   nothing overflowing. Uses display:contents so the tools' buttons become
+   direct flex items of the header row and can be re-ordered. ---------------- */
+@media (max-width: 760px) {
+  .header__inner { gap: 0.5rem; flex-wrap: nowrap; }
+  .header__tools { display: contents; }
+  .nav-toggle { order: -2; }
+  .brand { order: -1; margin-right: auto; min-width: 0; }
+  .header__inner [data-search-toggle] { order: 1; width: 42px; height: 42px; flex: 0 0 auto; }
+  .account { order: 2; flex: 0 0 auto; }
+
+  .brand__name { font-size: 1.1rem; }
+  .brand__text { overflow: hidden; }
+  .brand__mark { width: 36px; height: 36px; border-radius: 11px; }
+  .brand__mark svg { width: 20px; height: 20px; }
+
+  /* Compact account: a single "Log in"; sign-up lives on the login page. */
+  .account__signup { display: none; }
+  .account .btn--sm { padding: 0.42rem 0.75rem; }
+  .account__btn { padding: 0.28rem 0.5rem; }
+}
+
+@media (max-width: 400px) {
+  .brand__name { font-size: 1rem; }
+  .account__login { padding: 0.38rem 0.65rem; font-size: var(--fs-xs); }
 }

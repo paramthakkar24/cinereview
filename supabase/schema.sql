@@ -193,5 +193,42 @@ create or replace view public.movie_rating_stats as
   from public.ratings
   group by movie_id;
 
--- Done. Verify in Dashboard → Table Editor that profiles / ratings / comments
--- exist and each shows "RLS enabled".
+-- -----------------------------------------------------------------------------
+-- 7. watchlist — films a user saved to watch later (private to each user)
+--    Denormalised (title/poster/year stored) so the watchlist page renders
+--    without re-calling TMDB.
+-- -----------------------------------------------------------------------------
+create table if not exists public.watchlist (
+  id          uuid        primary key default gen_random_uuid(),
+  user_id     uuid        not null references public.profiles (id) on delete cascade,
+  movie_id    text        not null,
+  title       text        not null,
+  poster      text,
+  year        integer,
+  created_at  timestamptz not null default now(),
+  unique (user_id, movie_id)
+);
+
+create index if not exists watchlist_user_idx on public.watchlist (user_id, created_at desc);
+
+alter table public.watchlist enable row level security;
+
+-- Watchlists are private: a user can only see and change their own rows.
+drop policy if exists "users can read their own watchlist" on public.watchlist;
+create policy "users can read their own watchlist"
+  on public.watchlist for select
+  using (auth.uid() = user_id);
+
+drop policy if exists "users can insert into their own watchlist" on public.watchlist;
+create policy "users can insert into their own watchlist"
+  on public.watchlist for insert
+  with check (auth.uid() = user_id);
+
+drop policy if exists "users can delete from their own watchlist" on public.watchlist;
+create policy "users can delete from their own watchlist"
+  on public.watchlist for delete
+  using (auth.uid() = user_id);
+
+
+-- Done. Verify in Dashboard → Table Editor that profiles / ratings / comments /
+-- watchlist exist and each shows "RLS enabled".

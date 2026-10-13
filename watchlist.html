@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Watchlist — CineReview</title>
+<meta name="description" content="Films you've saved to watch later on CineReview.">
+<meta name="theme-color" content="#08080b">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='19' font-size='19'>🎬</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<!-- Google Analytics 4 (gtag.js) — loaded once per page, see js/analytics.js -->
+<script src="js/analytics.js"></script>
+</head>
+<body data-page="watchlist">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header" data-header>
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="CineReview home">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">CineReview</span>
+        <span class="brand__tag">Movie Reviews</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="main-nav" data-nav aria-label="Main">
+      <a class="nav__link" data-nav-link="home" href="index.html">Home</a>
+      <a class="nav__link" data-nav-link="movies" href="movies.html">Movies</a>
+      <a class="nav__link" data-nav-link="reviews" href="reviews.html">Reviews</a>
+      <a class="nav__link" data-nav-link="about" href="about.html">About</a>
+    </nav>
+
+    <div class="header__tools">
+      <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-controls="nav-search" aria-label="Search movies"></button>
+      <div class="account" data-account aria-live="polite"></div>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+
+    <form class="nav-search" id="nav-search" role="search" action="movies.html" method="get">
+      <label class="sr-only" for="nav-search-input">Search movies</label>
+      <div class="nav-search__field">
+        <input class="nav-search__input" id="nav-search-input" type="search" name="q" placeholder="Search movies, directors, cast" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="nav-search-results" aria-autocomplete="list">
+        <button class="btn btn--primary btn--sm" type="submit">Search</button>
+      </div>
+      <ul class="nav-search__results" id="nav-search-results" role="listbox" aria-label="Suggestions" hidden></ul>
+      <p class="nav-search__more" id="nav-search-more" hidden>
+        <button class="nav-search__all" type="submit"></button>
+      </p>
+    </form>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap page-head__inner">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span aria-hidden="true">/</span><span>Watchlist</span>
+      </nav>
+      <h1 class="page-head__title">My watchlist</h1>
+      <p class="page-head__lead">Films you've saved to watch later.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div data-watchlist aria-live="polite">
+        <p class="section__note">Loading…</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__bottom">
+    <span>&copy; <span id="year">2026</span> CineReview. A demonstration project — all reviews are original editorial content.</span>
+    <p class="footer__note">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="movies.html">Movies</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/data.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/api.js"></script>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js" defer></script>
+<script src="js/auth.js" defer></script>
+<script src="js/watchlist.js" defer></script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  document.querySelectorAll(".brand__mark").forEach(function (m) {
+    m.innerHTML = window.CR.icons.clapper;
+  });
+</script>
+
+</body>
+</html>
