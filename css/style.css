@@ -4277,7 +4277,10 @@ body[data-page="home"] .header.is-stuck {
    so inner margins can't collapse out and reveal the light page background;
    because the band and the footer are both navy, they merge into one block.
    A light last section (no band) gets its bottom padding trimmed instead. */
-footer { margin-top: 0; }
+/* `.footer { margin-top: var(--section-y) }` earlier adds a top margin that
+   shows the light page background before the footer. Use the class selector
+   (same specificity, later in source) so this actually wins over it. */
+.footer { margin-top: 0; }
 main > .section.band-navy:last-child { padding-bottom: clamp(2.25rem, 1.6rem + 1.8vw, 3rem); }
 main > .section:last-child:not(.band-navy) { padding-bottom: clamp(1.5rem, 1rem + 1.5vw, 2.5rem); }
 
