@@ -4080,6 +4080,20 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .hero__stats .stat__value--gold { color: #ffd166; }
 .hero__stats .stat__label { color: rgba(255, 255, 255, 0.75); }
 
+/* The cert badge + rating pill in the hero meta sit on the dark image, so give
+   them a translucent dark treatment with light text (they were light-on-light
+   and unreadable). */
+.hero__meta .badge,
+.hero__meta .rating-pill {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+  color: #fff;
+}
+.hero__meta .rating-pill,
+.hero__meta .rating-pill strong,
+.hero__meta .rating-pill b { color: #fff; }
+.hero__meta .rating-pill small { color: rgba(255, 255, 255, 0.78); }
+
 /* Header: translucent white that turns solid with a shadow + border once the
    page is scrolled — a clean, modern colour change. */
 .header {
