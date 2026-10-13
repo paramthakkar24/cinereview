@@ -4042,6 +4042,18 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .account__item { display: block; width: 100%; text-align: left; text-decoration: none; }
 .account__hello { margin-bottom: 0.2rem; }
 
+/* On desktop, reveal the profile menu on hover too (not click-only), with an
+   invisible bridge over the gap so moving the pointer into it doesn't close it. */
+@media (hover: hover) and (pointer: fine) {
+  .account__menu:hover .account__dropdown,
+  .account__menu:focus-within .account__dropdown { display: flex !important; }
+  .account__dropdown::before {
+    content: "";
+    position: absolute;
+    top: -0.65rem; left: 0; right: 0; height: 0.7rem;
+  }
+}
+
 /* Give the watchlist button room to breathe. */
 .watch-cta { padding: 2rem 0 0.5rem; }
 
