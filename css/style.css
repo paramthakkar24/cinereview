@@ -4283,6 +4283,20 @@ body[data-page] .header--on-dark.is-stuck {
   backdrop-filter: none;
 }
 
+@media (max-width: 760px) {
+  /* The mobile menu is a white drawer, so its links must stay dark even when the
+     header is in navy mode — otherwise they'd be white-on-white. */
+  .header--on-dark .nav__link { color: var(--text); }
+  .header--on-dark .nav__link:hover,
+  .header--on-dark .nav__link[aria-current="page"] { color: var(--accent); }
+  /* Hamburger stays visible on a navy header. */
+  .header--on-dark .nav-toggle {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.30);
+    color: #fff;
+  }
+}
+
 /* =============================================================================
    34. NAVY FEATURE SECTIONS — the navy / white / blue mixture from adxenex
 ============================================================================= */
