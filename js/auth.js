@@ -227,16 +227,24 @@
     var dropdown = slot.querySelector("[data-account-dropdown]");
     var out = slot.querySelector("[data-account-signout]");
 
+    // On hover-capable desktops the menu is revealed purely by CSS :hover, so we
+    // must NOT also toggle `hidden` on click — that left it stuck open. Only bind
+    // the click toggle on touch devices (no hover).
+    var hoverMenu = false;
+    try { hoverMenu = window.matchMedia("(hover: hover) and (pointer: fine)").matches; } catch (e) {}
+
     if (toggle && dropdown) {
-      toggle.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var willOpen = dropdown.hasAttribute("hidden");
-        closeAllMenus();
-        if (willOpen) {
-          dropdown.removeAttribute("hidden");
-          toggle.setAttribute("aria-expanded", "true");
-        }
-      });
+      if (!hoverMenu) {
+        toggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          var willOpen = dropdown.hasAttribute("hidden");
+          closeAllMenus();
+          if (willOpen) {
+            dropdown.removeAttribute("hidden");
+            toggle.setAttribute("aria-expanded", "true");
+          }
+        });
+      }
       // Keep clicks inside the menu (e.g. the links) from closing it early.
       dropdown.addEventListener("click", function (e) { e.stopPropagation(); });
     }

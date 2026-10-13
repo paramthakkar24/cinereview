@@ -4045,8 +4045,7 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 /* On desktop, reveal the profile menu on hover too (not click-only), with an
    invisible bridge over the gap so moving the pointer into it doesn't close it. */
 @media (hover: hover) and (pointer: fine) {
-  .account__menu:hover .account__dropdown,
-  .account__menu:focus-within .account__dropdown { display: flex !important; }
+  .account__menu:hover .account__dropdown { display: flex !important; }
   .account__dropdown::before {
     content: "";
     position: absolute;
@@ -4185,6 +4184,43 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
   border-color: #fff;
   color: #fff;
   transform: translateY(-2px);
+}
+
+/* Home page: the header overlays the dark hero — transparent with light text at
+   the top, then turns solid white (navy text) once you scroll. A clear header
+   colour change that reacts to the section behind it. ----------------------- */
+body[data-page="home"] .header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  box-shadow: none;
+}
+body[data-page="home"] .hero { padding-top: calc(var(--header-h) + 1.75rem); }
+
+body[data-page="home"] .header:not(.is-stuck) .nav__link { color: rgba(255, 255, 255, 0.86); }
+body[data-page="home"] .header:not(.is-stuck) .nav__link:hover,
+body[data-page="home"] .header:not(.is-stuck) .nav__link[aria-current="page"] { color: #fff; }
+body[data-page="home"] .header:not(.is-stuck) .brand__name {
+  background: none;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+}
+body[data-page="home"] .header:not(.is-stuck) .brand__tag { color: rgba(255, 255, 255, 0.7); }
+body[data-page="home"] .header:not(.is-stuck) .icon-btn { color: #fff; }
+body[data-page="home"] .header:not(.is-stuck) .account__login {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+body[data-page="home"] .header.is-stuck {
+  background: #ffffff;
+  border-bottom-color: var(--line);
+  box-shadow: 0 6px 22px rgba(16, 29, 65, 0.08);
 }
 
 /* Respect reduced-motion for all the new hover transforms ----------------- */
