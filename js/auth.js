@@ -212,24 +212,42 @@
     });
   }
 
+  var closersBound = false;
+  function closeAllMenus() {
+    document.querySelectorAll("[data-account-dropdown]").forEach(function (d) {
+      d.setAttribute("hidden", "");
+    });
+    document.querySelectorAll("[data-account-toggle]").forEach(function (t) {
+      t.setAttribute("aria-expanded", "false");
+    });
+  }
+
   function wire(slot) {
     var toggle = slot.querySelector("[data-account-toggle]");
     var dropdown = slot.querySelector("[data-account-dropdown]");
     var out = slot.querySelector("[data-account-signout]");
+
     if (toggle && dropdown) {
       toggle.addEventListener("click", function (e) {
         e.stopPropagation();
-        var open = dropdown.hasAttribute("hidden");
-        if (open) { dropdown.removeAttribute("hidden"); toggle.setAttribute("aria-expanded", "true"); }
-        else { dropdown.setAttribute("hidden", ""); toggle.setAttribute("aria-expanded", "false"); }
-      });
-      document.addEventListener("click", function () {
-        if (!dropdown.hasAttribute("hidden")) {
-          dropdown.setAttribute("hidden", "");
-          toggle.setAttribute("aria-expanded", "false");
+        var willOpen = dropdown.hasAttribute("hidden");
+        closeAllMenus();
+        if (willOpen) {
+          dropdown.removeAttribute("hidden");
+          toggle.setAttribute("aria-expanded", "true");
         }
       });
+      // Keep clicks inside the menu (e.g. the links) from closing it early.
+      dropdown.addEventListener("click", function (e) { e.stopPropagation(); });
     }
+
+    // Bind the outside-click / Escape closers exactly once, not per render.
+    if (!closersBound) {
+      closersBound = true;
+      document.addEventListener("click", closeAllMenus);
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAllMenus(); });
+    }
+
     if (out) {
       out.addEventListener("click", function () {
         signOut().then(function () {
