@@ -4101,6 +4101,92 @@ h1, h2, h3, .hero__title, .section__title, .page-head__title,
 .icon-btn { color: var(--text-2); }
 .icon-btn:hover { color: var(--text); }
 
+/* =============================================================================
+   33. ADXENEX COMPONENT SYSTEM — buttons, cards, footer, inputs
+   Match the real component styling from the adxenex design system.
+============================================================================= */
+
+/* Buttons: rounded rectangles (not pills), blue fill, generous padding,
+   uppercase-ish label, lift on hover. --------------------------------------- */
+.btn {
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 0.9rem 1.35rem;
+  font-size: var(--fs-sm);
+  transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+}
+.btn--sm { border-radius: 8px; padding: 0.56rem 0.95rem; font-size: var(--fs-xs); }
+.btn--primary { background: var(--accent); border: 1px solid var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-2); border-color: var(--accent-2); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25); }
+.btn--ghost { background: #fff; border: 1px solid var(--line-2); color: var(--text); }
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--accent-line); color: var(--accent); transform: translateY(-2px); }
+.btn--gold { background: var(--gold); border: 1px solid var(--gold); color: #fff; }
+
+/* Movie cards: white, bordered, soft shadow, lift + poster zoom on hover. ---- */
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(16, 29, 65, 0.06);
+  transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(16, 29, 65, 0.14);
+  border-color: var(--accent-line);
+}
+.card__media { border: 0; border-radius: 0; box-shadow: none; }
+.card:hover .card__media { transform: none; border: 0; box-shadow: none; }
+.card:hover .card__poster { transform: scale(1.05); }
+.card__body { padding: 0.95rem 1.05rem 1.1rem; }
+.card__title a { color: var(--title); }
+.card__title a:hover { color: var(--accent); }
+.card--rank .card__media { border-radius: 0; }
+
+/* Dark navy footer with uppercase Manrope headers. ------------------------- */
+.footer { background: #0a1230; color: #aebbd8; border-top: 0; padding: 4rem 0 1.75rem; }
+.footer__title { color: #fff; text-transform: uppercase; letter-spacing: 0.09em; font-size: 0.78rem; font-family: var(--display); font-weight: 700; }
+.footer__links a, .footer__blurb { color: #aebbd8; }
+.footer__links a:hover { color: #fff; }
+.footer__note { color: #7f8db3; }
+.footer__bottom { color: #8491b5; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.footer__bottom a { color: #aebbd8; }
+.footer__bottom a:hover { color: #fff; }
+.footer__brand .brand__name {
+  background: linear-gradient(92deg, #ffffff 0%, #9fc0ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.footer__brand .brand__tag { color: #7f8db3; }
+.footer__social { border: 1px solid rgba(255, 255, 255, 0.16); color: #aebbd8; }
+.footer__social:hover { border-color: var(--accent-2); color: #fff; }
+
+/* Form controls on the light theme: white fields, blue focus ring. --------- */
+#search, .select select, .nav-search__input {
+  background: #fff;
+  border: 1px solid var(--line-2);
+  color: var(--text);
+}
+#search:focus, .select select:focus, .nav-search__input:focus {
+  outline: none;
+  border-color: var(--accent-line);
+}
+.search, .select { background: #fff; }
+
+/* Hero sits on a dark image: keep its secondary button an outline, not solid. */
+.hero__cta .btn--ghost {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+.hero__cta .btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
 /* Respect reduced-motion for all the new hover transforms ----------------- */
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .card:hover .card__media, .card:hover .card__poster,
